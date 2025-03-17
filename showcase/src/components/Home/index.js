@@ -1,10 +1,9 @@
-// import { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import Typed from 'typed.js';
 import React from 'react';
 // import Loader from 'react-loaders'
-// import AnimatedLetters from '../AnimatedLetters'
-// import LogoTitle from '../../assets/images/logo-s.png'
+import AnimatedLetters from '../AnimatedLetters'
 // import Logo from './Logo'
 import './index.scss'
 
@@ -34,11 +33,30 @@ const Home = () => {
     }
   }, [])
 
+
+  const [letterClass, setLetterClass] = useState('text-animate');
+  const nameArray = ['V','i','s','h','w','a','s']
+
+  useEffect(() => {
+    const timeoutId = setTimeout(() => {
+      setLetterClass('text-animate-hover');
+    }, 4000);
+  
+    return () => clearTimeout(timeoutId); // Proper cleanup
+  }, []);
+
   return (
     <div className="container home-page">
       <div className= "text-zone">
-        <h1>Hey,<br /> I'm Vishwas Patel <br />
-          <span>
+        <h1>
+          <span className={letterClass}>H</span>
+          <span className={`${letterClass} _12`}>i,</span>
+          <br />
+          <span className={`${letterClass} _13`}>I</span>
+          <span className={`${letterClass} _14`}>'m</span>
+        
+        <AnimatedLetters letterClass = {letterClass} strArray ={nameArray} idx= {15}/><br />
+          <span id ="typed">
             {/* Reference the span for Typed.js */}
             <span ref={el}></span>
           </span>
