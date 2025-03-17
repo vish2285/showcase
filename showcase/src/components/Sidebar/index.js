@@ -71,7 +71,7 @@ const Sidebar = () => {
       </ul>
       
     </div> 
-  )
+  );
 }
 
-export default Sidebar
+export default Sidebar;
