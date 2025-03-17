@@ -5,16 +5,14 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
   faLinkedin,
   faGithub,
-  faYoutube,
-  faSkype,
 } from '@fortawesome/free-brands-svg-icons'
 import {
   faHome,
   faUser,
   faEnvelope,
-  faSuitcase,
-  faBars,
-  faClose,
+  // faSuitcase,
+  // faBars,
+  // faClose,
 } from '@fortawesome/free-solid-svg-icons'
 const Sidebar = () => {
   return (
@@ -72,7 +70,7 @@ const Sidebar = () => {
         </li>
       </ul>
       
-    </div>
+    </div> 
   )
 }
 
