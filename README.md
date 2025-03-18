@@ -8,4 +8,7 @@
 Link: 
 
 # Built With
-[![Made with](https://skillicons.dev/icons?i=js,scss,html,css,react,)](https://skillicons.dev)
+[![Made with](https://skillicons.dev/icons?i=js,react,scss,html,css,firebase)](https://skillicons.dev)
+
+# Libraries
+Emai
