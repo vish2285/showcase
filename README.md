@@ -8,4 +8,4 @@
 Link: 
 
 # Luminum has been built with 
-[![Made with](https://skillicons.dev/icons?i=js,scss,email.js,html,vite,css,react,)](https://skillicons.dev)
+[![Made with](https://skillicons.dev/icons?i=js,scss,html,vite,css,react,)](https://skillicons.dev)
