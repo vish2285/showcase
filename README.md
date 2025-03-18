@@ -11,4 +11,4 @@ Link:
 [![Made with](https://skillicons.dev/icons?i=js,react,scss,html,css,firebase,git)](https://skillicons.dev)
 
 # Libraries
-Emai
+Email.js
