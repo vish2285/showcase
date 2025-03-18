@@ -7,5 +7,5 @@
 # Overview Of Project
 Link: 
 
-# Luminum has been built with 
+# Built With
 [![Made with](https://skillicons.dev/icons?i=js,scss,html,css,react,)](https://skillicons.dev)
