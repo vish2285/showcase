@@ -8,7 +8,7 @@
 Link: 
 
 # Built With
-[![Made with](https://skillicons.dev/icons?i=js,react,scss,html,css,firebase,git)](https://skillicons.dev)
+[![Made with](https://skillicons.dev/icons?i=js,react,scss,html,css,git)](https://skillicons.dev)
 
 # Libraries
 Email.js
