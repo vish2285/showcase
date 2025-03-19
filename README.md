@@ -5,7 +5,7 @@
 
 
 # Overview Of Project
-Link: [Vishthedev]([url](https://vishthedev.netlify.app/))
+Link: [Vishthedev]([url](https://vishthedev.netlify.app))
 
 # Built With
 [![Made with](https://skillicons.dev/icons?i=js,react,scss,html,css,git)](https://skillicons.dev)
