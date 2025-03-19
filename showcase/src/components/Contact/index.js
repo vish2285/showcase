@@ -21,18 +21,18 @@ const Contact = () => {
 
     emailjs
       .sendForm(
-        "service_dzjmkcu",
-        "template_bmlvy12",
-        form.current, 
-        "" // Replace with your Public Key
+        'service_dzjmkcu',
+        'template_bmlvy12',
+        form.current,
+        '' // Replace with your Public Key
       )
       .then(
         () => {
-          alert("Message successfully sent!")
+          alert('Message successfully sent!')
           window.location.reload(false)
         },
         () => {
-          alert("Failed to send the message, please try again.")
+          alert('Failed to send the message, please try again.')
         }
       )
   }
@@ -49,8 +49,8 @@ const Contact = () => {
             />
           </h1>
           <p>
-            If you have any other requests or
-            questions, don't hesitate to contact me using the form below.
+            If you have any other requests or questions, don't hesitate to
+            contact me using the form below.
           </p>
           <div className="contact-form">
             <form ref={form} onSubmit={sendEmail}>

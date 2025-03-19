@@ -1,10 +1,10 @@
 #typed {
-  font-size: 1.25rem; // Equivalent to text-xl
-  color: #bfdbfe; // Equivalent to text-blue-200
-  line-height: 1.25; // Equivalent to leading-tight
+  font-size: 1.25rem; 
+  color: #bfdbfe; 
+  line-height: 1.25; 
 
   @media (min-width: 768px) {
-    font-size: 1.875rem; // Equivalent to md:text-3xl
+    font-size: 1.875rem; 
   }
 }
 
@@ -84,8 +84,32 @@
     white-space: nowrap;
 
     &:hover {
-      background: #ffd700;
+      background: #bfdbfe;
       color: #333;
     }
   }
+}
+
+@media screen and (max-width: 1200px) {
+  .tags,
+  .home-page h1:before,
+  .home-page h1:after {
+    display: none;
+  }
+
+  .home-page .text-zone {
+    position: initial;
+    width: 100%;
+    transform: none;
+    padding: 10px;
+    box-sizing: border-box;
+  }
+
+  .home-page .flat-button {
+    float: none;
+    display: block;
+    margin: 20px auto 0 auto;
+    width: 124px;
+  }
+
 }

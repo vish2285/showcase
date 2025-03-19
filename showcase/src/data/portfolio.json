@@ -8,12 +8,12 @@
         },
         {
             "cover": "/portfolio/oldPortfolio.png",
-            "title": "HTML, CSS, React, JSX, Tailwind, JavaScript, Vite",
-            "description": "Old Portfolio",
+            "title": "Old Portfolio",
+            "description": "HTML, CSS, React, JSX, Tailwind, JavaScript, Vite",
             "url": "https://vishthefish.netlify.app/"
         },
         {
-            "cover": "/portfolio/signatureWeb.png",
+            "cover": "/portfolio/signature.png",
             "title": "Signature Web",
             "description": "HTML, CSS, JavaScript, Canvas API",
             "url": "https://signature-web.netlify.app/"

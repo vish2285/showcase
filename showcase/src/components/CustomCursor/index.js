@@ -1,21 +1,21 @@
-import { useEffect, useState } from "react";
-import "./index.scss"; // Import the CSS file
+import { useEffect, useState } from 'react'
+import './index.scss'
 
 const CustomCursor = () => {
-  const [position, setPosition] = useState({ x: 0, y: 0 });
-  const [innerPosition, setInnerPosition] = useState({ x: 0, y: 0 });
+  const [position, setPosition] = useState({ x: 0, y: 0 })
+  const [innerPosition, setInnerPosition] = useState({ x: 0, y: 0 })
 
   useEffect(() => {
     const moveCursor = (e) => {
-      setPosition({ x: e.clientX, y: e.clientY });
+      setPosition({ x: e.clientX, y: e.clientY })
       setTimeout(() => {
-        setInnerPosition({ x: e.clientX, y: e.clientY });
-      }, 50);
-    };
+        setInnerPosition({ x: e.clientX, y: e.clientY })
+      }, 50)
+    }
 
-    document.addEventListener("mousemove", moveCursor);
-    return () => document.removeEventListener("mousemove", moveCursor);
-  }, []);
+    document.addEventListener('mousemove', moveCursor)
+    return () => document.removeEventListener('mousemove', moveCursor)
+  }, [])
 
   return (
     <>
@@ -30,11 +30,13 @@ const CustomCursor = () => {
       <div
         className="custom-cursor-inner"
         style={{
-          transform: `translate(${innerPosition.x - 8}px, ${innerPosition.y - 8}px)`,
+          transform: `translate(${innerPosition.x - 8}px, ${
+            innerPosition.y - 8
+          }px)`,
         }}
       />
     </>
-  );
-};
+  )
+}
 
-export default CustomCursor;
+export default CustomCursor
