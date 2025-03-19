@@ -1,0 +1,110 @@
+.portfolio-page {
+    padding-left: 100px;
+    padding-right: 50px;
+    width: calc(100% - 150px);
+    position: initial;
+    height: 100%;
+    overflow: auto;
+
+    h1.page-title {
+        margin-left: 100px;
+        margin-top: 100px;
+    }
+
+    .images-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center; 
+        align-items: flex-start; 
+        gap: 40px;
+        padding-bottom: 100px;
+        width: 100%;
+    }
+
+    .image-box {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start; 
+        gap: 10px;
+        background: transparent;
+        padding: 20px;
+        border-radius: 10px;
+        transition: transform 0.3s ease-in-out;
+        max-width: 320px;
+        width: 100%;
+        min-height: 400px; 
+    
+        &:hover {
+            transform: scale(1.05);
+        }
+
+        .portfolio-image {
+            width: 100%;
+            max-width: 320px;
+            height: auto;
+            border: 2px solid #ff0000;
+            border-radius: 10px;
+            transition: all 0.3s ease-in-out;
+
+            &:hover {
+                background-color: #ff0000;
+                border-radius: 15px;
+            }
+        }
+
+        .content {
+            text-align: center;
+            width: 100%;
+        }
+
+        .title {
+            color: #fff;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .description {
+            font-size: 14px;
+            color: #ddd;
+            font-weight: 700;
+        }
+
+        .btn {
+            margin-top: 15px;
+            padding: 10px 20px;
+            border: 2px solid #bfdbfe;
+            border-radius: 5px;
+            font-size: 14px;
+            color: #fff;
+            background: transparent;
+            text-transform: uppercase;
+            font-weight: 700;
+            transition: all 0.3s ease-in-out;
+            cursor: pointer;
+
+            &:hover {
+                background: #bfdbfe;
+                color: #000;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .portfolio-page {
+        padding: 10px;
+
+        .images-container {
+            grid-template-columns: 1fr;
+            gap: 1px;
+            justify-items: center; 
+        }
+
+        .image-box {
+            max-width: 100%;
+            width: 90%;
+            margin: 0 auto; 
+        }
+    }
+}

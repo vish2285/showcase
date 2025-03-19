@@ -1,0 +1,23 @@
+.custom-cursor-outer {
+  position: fixed;
+  width: 48px;
+  height: 48px;
+  border: 2px solid white;
+  border-radius: 50%;
+  pointer-events: none;
+  mix-blend-mode: difference;
+  transition: transform 0.2s ease-out;
+  z-index: 9999;
+}
+
+.custom-cursor-inner {
+  position: fixed;
+  width: 16px;
+  height: 16px;
+  background-color: white;
+  border-radius: 50%;
+  pointer-events: none;
+  mix-blend-mode: difference;
+  transition: transform 0.1s ease-out;
+  z-index: 9999;
+}

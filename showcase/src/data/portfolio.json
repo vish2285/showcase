@@ -1,0 +1,28 @@
+{
+    "portfolio": [
+        {
+            "cover": "/portfolio/landingPage.png",
+            "title": "Luminum",
+            "description": "HTML, CSS, React, JSX, Tailwind, JavaScript, Vite",
+            "url": "https://6619ba510093cd0f11ed27d6--symphonious-dusk-96a4ed.netlify.app"
+        },
+        {
+            "cover": "/portfolio/oldPortfolio.png",
+            "title": "Old Portfolio",
+            "description": "HTML, CSS, React, JSX, Tailwind, JavaScript, Vite",
+            "url": "https://vishthefish.netlify.app/"
+        },
+        {
+            "cover": "/portfolio/signature.png",
+            "title": "Signature Web",
+            "description": "HTML, CSS, JavaScript, Canvas API",
+            "url": "https://signature-web.netlify.app/"
+        },
+        {
+            "cover": "/portfolio/weeklySchedule.png",
+            "title": "Weekly Schedule",
+            "description": "HTML, CSS, React, JSX, Tailwind, JavaScript, Vite",
+            "url": "https://661df347ef9bcc7eab003020--animated-dusk-0c3ad3.netlify.app/"
+        }
+    ]
+}
