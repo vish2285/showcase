@@ -7,8 +7,6 @@
 # Overview Of Project
 Link: [Vishthedev](https://vishthedev.netlify.app)
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/747337fa-8494-4e59-8313-ddc0138d15c0/deploy-status)](https://app.netlify.com/sites/vishthedev/deploys)
-
 # Built With
 [![Made with](https://skillicons.dev/icons?i=js,react,scss,html,css,git)](https://skillicons.dev)
 
