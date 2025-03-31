@@ -1,6 +1,18 @@
 {
     "portfolio": [
         {
+            "cover": "/portfolio/dash.png",
+            "title": "xpenza",
+            "description": "Clerk, Drizzle ORM, React, Tailwind, JavaScript, Next.js, Postgresql",
+            "url": "https://xpenza.vercel.app/"
+        },
+        {
+            "cover": "/portfolio/newPort.png",
+            "title": "Portfolio",
+            "description": "HTML, CSS, React, JSX, Tailwind, JavaScript, Vite",
+            "url": "https://vishthedev.netlify.app/"
+        },
+        {
             "cover": "/portfolio/landingPage.png",
             "title": "Luminum",
             "description": "HTML, CSS, React, JSX, Tailwind, JavaScript, Vite",
