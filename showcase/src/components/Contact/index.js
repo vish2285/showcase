@@ -24,7 +24,7 @@ const Contact = () => {
         'service_dzjmkcu',
         'template_bmlvy12',
         form.current,
-        '' // Replace with your Public Key
+        'xMuUFlvOfQf_VHUB3' // Replace with your Public Key
       )
       .then(
         () => {
