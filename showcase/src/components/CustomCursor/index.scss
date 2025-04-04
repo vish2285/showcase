@@ -21,3 +21,11 @@
   transition: transform 0.1s ease-out;
   z-index: 9999;
 }
+
+/* Hide cursor on screens smaller than 768px */
+@media (max-width: 768px) {
+  .custom-cursor-outer,
+  .custom-cursor-inner {
+    display: none;
+  }
+}
