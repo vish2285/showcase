@@ -25,9 +25,12 @@ $primary-color: #ffd700;
   font-weight: normal;
   font-style: normal;
 }
-
+body { 
+  cursor: none;
+}
 input,
 textarea {
+  cursor: none;
   font-family: 'Helvetica Neue', sans-serif;
 }
 
