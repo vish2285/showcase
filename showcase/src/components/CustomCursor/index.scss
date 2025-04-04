@@ -9,7 +9,9 @@
   transition: transform 0.2s ease-out;
   z-index: 9999;
 }
-
+body {
+  cursor: none;
+}
 .custom-cursor-inner {
   position: fixed;
   width: 16px;
