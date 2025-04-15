@@ -1,3 +1,4 @@
+import React, { useEffect } from 'react';
 import { Route, Routes } from 'react-router-dom'
 import Home from './components/Home'
 import About from './components/About'
@@ -7,6 +8,9 @@ import Portfolio from './components/Portfolio'
 import './App.scss'
 
 function App() {
+  useEffect(() => {
+    document.title = 'Vishwas\'s Portfolio';
+  }, []);
   return (
     <>
       <Routes>
