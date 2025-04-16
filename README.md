@@ -1,11 +1,10 @@
-# ⚡Welcome to My Portfolio⚡
+# ![⚡Welcome to My Portfolio⚡](https://vishthefish.vercel.app/)
+
+![Alvy AI Landing Page](/public/portfolio/newPort.png)
 
 * This website functions properly on phones, iPads, and large screens.
 * You'll enjoy an amazing experience on any device because it has been custom-tailored to suit flawlessly on all these varied screens.
 
-
-# Overview Of Project
-Link: [Vishthedev](https://vishthefish.vercel.app/)
 
 # Built With
 [![Made with](https://skillicons.dev/icons?i=js,react,scss,html,css,git)](https://skillicons.dev)
