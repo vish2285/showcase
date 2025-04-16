@@ -1,4 +1,4 @@
-# ![⚡Welcome to My Portfolio⚡](https://vishthefish.vercel.app/)
+# [⚡Welcome to My Portfolio⚡](https://vishthefish.vercel.app/)
 
 ![Landing Page](/showcase/public/portfolio/newPort.png)
 
