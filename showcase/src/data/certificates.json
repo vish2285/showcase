@@ -1,0 +1,55 @@
+{
+    "Certificate": [
+        {
+            "cover": "/certificates/PE.png",
+            "title": "Prompt Engineering",
+            "url": "https://learn.deeplearning.ai/accomplishments/ea363a67-1b52-4978-bd8c-a1d55f5211c8?usp=sharing"
+        },
+        {
+            "cover": "/certificates/ML.png",
+            "title": "Machine Learning",
+            "url": ""
+        },
+        {
+            "cover": "/certificates/FER.png",
+            "title": "Front-End Apps with React",
+            "url": "https://www.coursera.org/account/accomplishments/verify/9H91JFNQ6H02"
+        },
+        {
+            "cover": "/certificates/GG.png",
+            "title": "Git and GitHub",
+            "url": "https://www.coursera.org/account/accomplishments/verify/XWLZBM90LVCE"
+        },
+        {
+            "cover": "/certificates/AI.png",
+            "title": "Artificial Intelligence (AI)",
+            "url": "https://www.coursera.org/account/accomplishments/verify/Q7C687C66CU1"
+        },
+      
+        {
+            "cover": "/certificates/GG.png",
+            "title": "Cloud Computing",
+            "url": "/certificates/CC.pdf"
+        },
+        {
+            "cover": "/certificates/HCJ.png",
+            "title": "HTML, CSS, & JavaScript",
+            "url": "https://www.coursera.org/account/accomplishments/verify/M9GK8C1BU0XK"
+        },
+        {
+            "cover": "/certificates/SE.png",
+            "title": "Intro to Software Engineering",
+            "url": "https://www.coursera.org/account/accomplishments/verify/16HBGQW0G1PJ"
+        },
+        {
+            "cover": "/certificates/MERN.png",
+            "title": "MERN Stack",
+            "url": "https://30dc.graphy.com/verify-certificate?serialno=7UAJQJWP"
+        },
+        {
+            "cover": "/certificates/PFE.png",
+            "title": "Programming for Everybody",
+            "url": "https://courses.edx.org/certificates/8b9b21d1ea2b45bcb92f2babdb1bc753?_gl=1*1jdnx3b*_ga*MTkwOTY4NjMwLjE3MDI1MjQzNTg.*_ga_D3KS4KMDT0*MTcwMzU1OTE0Mi4xMS4xLjE3MDM1NTkyMTIuNTMuMC4w"
+        }
+    ]
+}

@@ -10,7 +10,7 @@ import {
   faEnvelope,
   faSuitcase,
   faBars,
-  faClose,
+  faCertificate,
 } from '@fortawesome/free-solid-svg-icons'
 const Sidebar = () => {
   const [showNav, setShowNav] = useState(false)
@@ -55,13 +55,15 @@ const Sidebar = () => {
         >
           <FontAwesomeIcon icon={faEnvelope} color="#4d4d4e" />
         </NavLink>
-        <FontAwesomeIcon
-          onClick={() => setShowNav(false)}
-          icon={faClose}
-          color="#4d4d4e"
-          size="3x"
-          className="close-icon"
-        />
+        <NavLink
+        exact="true"
+        activeclassname="active"
+        className="certificates-link"
+        to="/certificate"
+        onClick={() => setShowNav(false)}
+        >
+        <FontAwesomeIcon icon={faCertificate} color="#4d4d4e"/>
+        </NavLink>
       </nav>
       <ul>
         <li>
