@@ -1,6 +1,12 @@
 {
     "portfolio": [
         {
+            "cover": "/portfolio/currentDashboard.png",
+            "title": "Alvy AI",
+            "description": "TypeScript, React, Tailwind CSS, Convex, AssemblyAI, Docker, AWS
+            "url": "In Progress"
+        },
+        {
             "cover": "/portfolio/dash.png",
             "title": "xpenza",
             "description": "Clerk, Drizzle ORM, React, Tailwind, JavaScript, Next.js, Postgresql",
