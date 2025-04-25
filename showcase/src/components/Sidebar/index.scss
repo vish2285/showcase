@@ -112,6 +112,13 @@ body {
       }
     }
 
+    a.resume-link {
+      cursor: none;
+      &:after {
+        content: 'Resume';
+      }
+    }
+
     a.certificates-link {
       cursor: none;
       &:after {
