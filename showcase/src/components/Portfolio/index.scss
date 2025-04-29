@@ -157,7 +157,7 @@ body {
     }
 
     .image-box {
-      height: 200px;
+      height: 300px;
       max-width: calc(50% - 10px);
 
       .content {
@@ -176,11 +176,9 @@ body {
     .images-container {
       display: flex;
       flex-direction: column;
-      gap: 15px;
+      gap: 30px;
       padding-bottom: 100px;
-      margin-left: -10px;
-      width: 90vh;
-      height: 55vh;
+      width: 100%;
     }
   }
 }
