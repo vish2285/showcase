@@ -157,11 +157,11 @@ body {
     }
 
     .image-box {
-      height: 300px;
-      max-width: calc(50% - 10px);
+      height: 300px; 
+      max-width: 100%;
 
       .content {
-        position: none;
+        position: absolute;
         transition: none;
         bottom: 0px;
         background: transparent;
@@ -177,8 +177,7 @@ body {
       display: flex;
       flex-direction: column;
       gap: 30px;
-      padding-bottom: 100px;
       width: 100%;
-    }
+    }}
   }
 }
