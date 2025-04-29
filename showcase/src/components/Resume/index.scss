@@ -1,54 +1,82 @@
 .resume-page {
-  padding-left: 100px;
-  padding-right: 50px;
-  width: calc(100% - 150px);
-  position: initial;
+  padding: 20px;
   height: 100%;
   overflow: auto;
   color: #bfdbfe;
+  position: relative; // Ensure relative positioning for child elements
+  width: 100%;
+  box-sizing: border-box;
+
+  @media screen and (min-width: 769px) {
+    padding-left: 100px;
+    padding-right: 50px;
+    width: calc(100% - 150px);
+  }
 
   .title-and-button {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-left: 100px;
-    padding-left: 10px;
-    padding-top: 100px;
+    padding-top: 50px;
     padding-bottom: 50px;
-    width: 80%; // control width for better spacing
+    width: 100%; // Full width on smaller screens
+    box-sizing: border-box;
+
+    @media screen and (min-width: 769px) {
+      margin-left: 100px;
+      padding-left: 10px;
+      width: 80%; // control width for better spacing
+      padding-top: 100px;
+    }
   }
 
   h1.page-title {
-    font-size: 50px;
+    font-size: 36px;
     font-family: 'Coolvetica';
     font-weight: 400;
     margin: 0;
+
+    @media screen and (min-width: 769px) {
+        font-size: 50px;
+      }
   }
 
   .download-btn {
-    padding: 10px 25px;
+    padding: 8px 20px;
     border: 2px solid #bfdbfe;
     border-radius: 5px;
     background-color: transparent;
     color: #bfdbfe;
     font-weight: bold;
     text-transform: uppercase;
-    font-size: 24px; // match the visual size of the title
+    font-size: 18px;
     cursor: pointer;
     transition: all 0.3s ease;
     text-decoration: none;
+    margin-top: 10px; // Add a bit of space between title and button on smaller screens
 
     &:hover {
       background-color: #bfdbfe;
       color: #0a192f;
+    }
+
+    @media screen and (min-width: 769px) {
+      font-size: 24px; // match the visual size of the title
+      margin-top: 0;
+      padding: 10px 25px;
     }
   }
 
   .resume-content {
     display: flex;
     justify-content: center;
-    padding-bottom: 100px;
     width: 100%;
+    box-sizing: border-box;
+    padding-bottom: 50px;
+
+    @media screen and (min-width: 769px) {
+      padding-bottom: 100px;
+    }
   
     .resume-image {
       width: 100%;
@@ -58,30 +86,32 @@
       border-radius: 8px;
       margin-top: 40px;
       box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-      object-fit: contain;
+      object-fit: contain; // maintain aspect ratio
     }
   }
 }
 
-@media screen and (max-width: 700px) {
-  .resume-page {
-    padding: 20px;
-
+@media screen and (max-width: 768px) {
+  .resume-page{
     .title-and-button {
       flex-direction: column;
-      align-items: flex-start;
-      margin-left: 20px;
-      margin-top: 20px;
+      align-items: center;
+      padding-left: 10px;
+      padding-right:10px;
       width: 100%;
+
+      @media screen and (max-width: 480px){
+        align-items: start;
+      }
     }
 
     h1.page-title {
-      font-size: 36px;
+      text-align: center;
     }
-
     .download-btn {
-      font-size: 18px;
-      margin-top: 15px;
+      width: 100%;
+      max-width: 250px;
+      text-align: center;
     }
   }
 }
