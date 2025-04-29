@@ -1,4 +1,4 @@
-import LogoE from '../../../assets/images/E.png';
+import LogoV from '../../assets/images/v-logo.svg'
 import './index.scss';
 
 const Logo = () => {
