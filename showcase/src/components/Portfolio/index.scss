@@ -1,168 +1,336 @@
-.portfolio {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 2rem 1rem;
-  background-color: #0a192f;
-  color: #ccd6f6;
-
-  h2 {
-    font-size: 2rem;
-    margin-bottom: 2rem;
-    text-align: center;
-  }
-
-  .images-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-    width: 100%;
-    max-width: 1400px;
-    padding: 0 20px;
-  }
-
-  .image-box {
-    box-sizing: border-box;
-    background-color: #112240;
-    border-radius: 10px;
-    overflow: hidden;
-    position: relative;
-    width: 100%;
-    max-width: 300px;
-    flex: 1 1 calc(100% - 20px);
-    transition: transform 0.3s ease;
-
-    &:hover {
-      transform: scale(1.02);
-
-      .content {
-        opacity: 1;
-        transform: translateY(0);
-      }
-
-      &:after {
-        height: 100%;
-      }
-    }
-
-    .portfolio-image {
-      width: 100%;
-      height: auto;
-      object-fit: cover;
-      display: block;
-    }
-
-    .content {
-      position: absolute;
-      bottom: 0;
-      background: rgba(10, 25, 47, 0.8);
-      width: 100%;
-      padding: 10px;
-      opacity: 0;
-      transition: opacity 0.3s ease, transform 0.3s ease;
-      transform: translateY(100%);
-
-      .title {
-        font-size: 18px;
-        font-weight: bold;
-        color: #64ffda;
-        margin-bottom: 5px;
-      }
-
-      .description {
-        font-size: 14px;
-        color: #a8b2d1;
-      }
-
-      .btn {
-        margin-top: 10px;
-        display: inline-block;
-        padding: 6px 12px;
-        background-color: #64ffda;
-        color: #0a192f;
-        border-radius: 5px;
-        text-decoration: none;
-        font-weight: bold;
-        transition: background-color 0.3s ease;
-
-        &:hover {
-          background-color: #52e0c4;
-        }
-      }
-    }
-
-    &:after {
-      content: '';
-      position: absolute;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 0;
-      background: rgba(10, 25, 47, 0.9);
-      transition: height 0.3s ease;
-      z-index: 1;
-    }
-  }
-
-  // Tablet Styles (iPad and similar)
-  @media (min-width: 768px) and (max-width: 1024px) {
-    .images-container {
-      justify-content: space-around;
-    }
-    .image-box {
-      max-width: 45%;
-      flex: 0 0 calc(50% - 20px); // Two columns with some space
-    }
-    
-  }
-
-  // Mobile Styles (iPhone and similar)
-  @media (max-width: 768px) {
-    .images-container {
-      flex-direction: column;
-      align-items: center;
-      padding: 0 10px;
-      
-    }
-
-    .image-box {
-      max-width: 100%;
-      flex: 0 0 100%;
-    }
-
-    .image-box {
-      &:hover {
-        transform: none; // Remove hover effect on touch devices
-      }
-    }
-
-    .image-box .content {
-      position: relative !important;
-      
-      opacity: 1 !important;
-      transform: translateY(0) !important;
-      background: rgba(10, 25, 47, 0.9);
-    }
-
-    .image-box:hover:after {
-      all: unset;
-    }
-  }
-
-  // Remove custom cursor on touch devices
-  @media (hover: none) and (pointer: coarse) {
-    body {
-      cursor: auto;
-    }
-
-    .btn {
-      cursor: pointer;
-    }
-
-    .image-box:hover .content,
-    .image-box:hover:after {
-      all: unset;
-    }
-  }
-}
+body {
+   cursor: none;
+ }
+ 
+ @keyframes fadeUp {
+   from {
+     opacity: 0;
+     transform: translateY(40px);
+   }
+   to {
+     opacity: 1;
+     transform: translateY(0);
+   }
+ }
+ 
+ .fade-up {
+   opacity: 0;
+   animation: fadeUp 0.6s ease-out forwards;
+ }
+ 
+ .portfolio-page {
+     padding-left: 100px;
+     padding-right: 50px;
+     width: calc(100% - 150px);
+     position: initial;
+     height: 100%;
+     overflow: auto;
+   padding-left: 100px;
+   padding-right: 50px;
+   width: calc(100% - 150px);
+   position: initial;
+   height: 100%;
+   overflow: auto;
+ 
+     h1.page-title {
+         margin-left: 100px;
+         margin-top: 100px;
+     }
+   h1.page-title {
+     margin-left: 100px;
+     margin-top: 100px;
+   }
+ 
+     .images-container {
+         display: flex;
+         gap: 15px;
+         flex-wrap: wrap;
+         padding-bottom: 100px;
+         margin-left: 50px;
+       }
+     
+     .image-box {
+         position: relative;
+         flex: 1 1 20%;
+         height: 400px;
+         overflow: hidden;
+         border-radius: 10px;
+         max-width: calc(30% );
+   .images-container {
+     display: flex;
+     gap: 15px;
+     flex-wrap: wrap;
+     padding-bottom: 100px;
+     margin-left: 50px;
+   }
+ 
+   .image-box {
+     position: relative;
+     flex: 1 1 20%;
+     height: 400px;
+     overflow: hidden;
+     border-radius: 10px;
+     max-width: calc(30%);
+ 
+     .portfolio-image {
+         position: absolute;
+         top: 0;
+         left: 0;
+         z-index: 2;
+         width: 100%;
+         height: 100%;
+         object-fit: cover;
+         object-position: center;
+ }
+       position: absolute;
+       top: 0;
+       left: 0;
+       z-index: 2;
+       width: 100%;
+       height: 100%;
+       object-fit: cover;
+       object-position: center;
+     }
+ 
+     .content {
+       position: absolute;
+       width: 100%;
+       z-index: 3;
+       padding: 10px 20px;
+       transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+       background: linear-gradient(
+         180deg,
+         rgba(10, 25, 47, 0.2) 0%,
+         rgba(10, 25, 47, 1) 100%
+       );
+       bottom: -70px;
+     }
+ 
+     .title {
+       margin-bottom: 0;
+       margin-top: 0;
+       color: #bfdbfe;
+       font-size: 24px;
+       font-weight: 500;
+       line-height: 24px;
+     }
+ 
+     .description {
+       font-size: 12.5px;
+       margin-bottom: 5px;
+       color: #bfdbfe;
+       font-weight: 700;
+     }
+ 
+         .content {
+             position: absolute;
+             width: 100%;
+             z-index: 3;
+             padding: 10px 20px;
+             transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+             background: linear-gradient(
+               180deg,
+               rgba(10, 25, 47, 0.2) 0%,
+               rgba(10, 25, 47, 1) 100%
+             );
+             bottom: -70px;
+         }
+ 
+         .title {
+             margin-bottom: 0;
+             margin-top: 0;
+             color: #bfdbfe;
+             font-size: 24px;
+             font-weight: 500;
+             line-height: 24px;
+         }
+ 
+         .description {
+             font-size: 12.5px;
+             margin-bottom: 5px;
+             color: #bfdbfe;
+             font-weight: 700;
+         }
+ 
+         .btn {
+             margin-top: 30px;
+             margin-bottom: 10px;
+             padding: 0 23px;
+             height: 40px;
+             line-height: 34px;
+             border: 2px solid #bfdbfe;
+             border-radius: 4px;
+             font-size: 14px;
+             color: #bfdbfe;
+             background: transparent;
+             text-transform: uppercase;
+             font-weight: 700;
+             transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+             cursor: none;
+         }
+ 
+         .btn:hover {
+             transform: translateY(-3px);
+             background: #bfdbfe;
+             cursor: none;
+         }
+ 
+         &:after {
+             content: "";
+             background: linear-gradient(180deg, #0a192f, #000c1f);
+             position: absolute;
+             left: 0;
+             right: 0;
+             bottom: 0;
+             top: 0;
+             width: 100%;
+             height: 100%;
+             z-index: 2;
+             transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+             opacity: 0;
+         }
+ 
+         &:hover:after {
+             opacity: 0.85;
+         }
+ 
+         &:hover .content {
+             bottom: 0;
+             background: transparent;
+         }
+     .btn {
+       margin-top: 30px;
+       margin-bottom: 10px;
+       padding: 0 23px;
+       height: 40px;
+       line-height: 34px;
+       border: 2px solid #bfdbfe;
+       border-radius: 4px;
+       font-size: 14px;
+       color: #bfdbfe;
+       background: transparent;
+       text-transform: uppercase;
+       font-weight: 700;
+       transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+       cursor: none;
+     }
+ 
+     .btn:hover {
+       transform: translateY(-3px);
+       background: #bfdbfe;
+       cursor: none;
+     }
+ 
+     &:after {
+       content: "";
+       background: linear-gradient(180deg, #0a192f, #000c1f);
+       position: absolute;
+       left: 0;
+       right: 0;
+       bottom: 0;
+       top: 0;
+       width: 100%;
+       height: 100%;
+       z-index: 2;
+       transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+       opacity: 0;
+     }
+ 
+     &:hover:after {
+       opacity: 0.85;
+     }
+ 
+     &:hover .content {
+       bottom: 0;
+       background: transparent;
+     }
+   }
+ }
+ @media screen and (max-width: 1000px){
+     .container.portfolio-page{
+         .images-container{
+             margin-left: -50px;
+         }
+ 
+ @media screen and (max-width: 1000px) {
+   .container.portfolio-page {
+     .images-container {
+       margin-left: -50px;
+     }
+   }
+ }
+ @media screen and (max-width: 700px){
+     .container.portfolio-page{
+         width: 100%; 
+         padding: 20px; 
+         box-sizing: border-box; 
+ 
+         h1.page-title{
+             margin-left: 20px; 
+             margin-top: 20px;
+         }
+         .image-box{
+             height: 200px; 
+             max-width: calc(50% - 10px);
+             .content{
+                 position: none;
+                 transition: none;
+                 bottom: 0px;
+                 background: transparent;
+             }
+             .title{
+                 display: none;
+             }
+             .description{
+                 display: none;
+             }
+         }
+         .images-container {
+             display: flex;
+             flex-direction: column;
+             gap: 15px;
+             padding-bottom: 100px;
+             margin-left: -10px;
+             width:90vh;
+             height: 55vh;
+           }
+ 
+ @media screen and (max-width: 700px) {
+   .container.portfolio-page {
+     width: 100%;
+     padding: 20px;
+     box-sizing: border-box;
+ 
+     h1.page-title {
+       margin-left: 20px;
+       margin-top: 20px;
+     }
+ 
+     .image-box {
+       height: 200px;
+       max-width: calc(50% - 10px);
+ 
+       .content {
+         position: none;
+         transition: none;
+         bottom: 0px;
+         background: transparent;
+       }
+ 
+       .title,
+       .description {
+         display: none;
+       }
+     }
+ 
+     .images-container {
+       display: flex;
+       flex-direction: column;
+       gap: 15px;
+       padding-bottom: 100px;
+       margin-left: -10px;
+       width: 90vh;
+       height: 55vh;
+     }
+   }
+ }
