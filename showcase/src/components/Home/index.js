@@ -13,12 +13,9 @@ const Home = () => {
     const typed = new Typed(el.current, {
       strings: [
         'Software Engineer',
-        'Web Developer',
         'Student',
         'Only Child',
-        'Software Developer',
         'Sophomore in College',
-        'Full Stack Developer',
       ],
       typeSpeed: 50,
       backSpeed: 50,
