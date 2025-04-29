@@ -52,7 +52,9 @@ const Home = () => {
           <br />
           <span className={`${letterClass} _13`}>I</span>
           <span className={`${letterClass} _14`}>'m &nbsp;</span>
-          <img src={LogoV} alt = "developer" />
+          <span style={{ display: 'inline-block', verticalAlign: 'middle' }}>
+            <img src={LogoV} alt="developer" />
+          </span>
         <AnimatedLetters letterClass = {letterClass} strArray ={nameArray} idx= {14}/><br />
           <span id ="typed">
             {/* Reference the span for Typed.js */}
