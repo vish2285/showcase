@@ -51,7 +51,7 @@ const Home = () => {
           <br />
           <span className={`${letterClass} _13`}>I</span>
           <span className={`${letterClass} _14`}>'m &nbsp;</span>
-        
+          <img src={LogoV} alt = "developer" />
         <AnimatedLetters letterClass = {letterClass} strArray ={nameArray} idx= {15}/><br />
           <span id ="typed">
             {/* Reference the span for Typed.js */}
