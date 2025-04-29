@@ -53,13 +53,15 @@ body {
     }
 
     img {
-      width: 80px; 
-      margin-top: 20px;
-      margin-left: 20px; 
-      opacity: 0; 
-      height: auto; 
-      animation: rotateIn 1s linear both; 
-      animation-delay: 1.4s; 
+      width: 56px;
+      height: auto;
+      margin-top: 0;        
+      margin-left: 10px;
+      vertical-align: middle; 
+      display: inline-block;
+      opacity: 0;
+      animation: rotateIn 1s linear both;
+      animation-delay: 1.4s;
     }
   }
 
