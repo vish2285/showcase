@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import Typed from 'typed.js';
 import React from 'react';
+import LogoV from '../../assets/images/v-logo.svg'
 import AnimatedLetters from '../AnimatedLetters'
 import './index.scss'
 
