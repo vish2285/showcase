@@ -24,9 +24,9 @@
     .svg-path {
       stroke: #ffd700;
       stroke-width: 10;
-      stroke-dasharray: 500;
-      stroke-dashoffset: 1000;
-      animation: drawSVG 3s linear infinite;
+      stroke-dasharray: 300;
+      stroke-dashoffset: 300;
+      animation: drawSVG 2s ease forwards;
     }
   }
 
@@ -45,6 +45,12 @@
     &.animate {
       opacity: 1;
     }
+  }
+}
+
+@keyframes drawSVG {
+  to {
+    stroke-dashoffset: 0;
   }
 }
 
