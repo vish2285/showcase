@@ -33,7 +33,7 @@ const Home = () => {
 
 
   const [letterClass, setLetterClass] = useState('text-animate');
-  const nameArray = ['V','i','s','h','w','a','s']
+  const nameArray = ['i','s','h','w','a','s']
 
   useEffect(() => {
     const timeoutId = setTimeout(() => {
@@ -53,7 +53,7 @@ const Home = () => {
           <span className={`${letterClass} _13`}>I</span>
           <span className={`${letterClass} _14`}>'m &nbsp;</span>
           <img src={LogoV} alt = "developer" />
-        <AnimatedLetters letterClass = {letterClass} strArray ={nameArray} idx= {15}/><br />
+        <AnimatedLetters letterClass = {letterClass} strArray ={nameArray} idx= {14}/><br />
           <span id ="typed">
             {/* Reference the span for Typed.js */}
             <span ref={el}></span>
