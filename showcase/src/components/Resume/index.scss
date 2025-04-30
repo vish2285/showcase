@@ -1,5 +1,4 @@
 .resume-page {
-  padding: 20px;
   height: 100%;
   overflow: auto;
   color: #bfdbfe;
@@ -82,6 +81,7 @@
       width: 100%;
       max-width: 1000px; // or 1200px if you want it bigger
       height: auto;
+      margin-left: -70px;
       border: 2px solid #bfdbfe;
       border-radius: 8px;
       margin-top: 40px;
@@ -92,26 +92,42 @@
 }
 
 @media screen and (max-width: 768px) {
-  .resume-page{
-    .title-and-button {
-      flex-direction: column;
-      align-items: center;
-      padding-left: 10px;
-      padding-right:10px;
-      width: 100%;
+  .resume-page {
+    padding: 0 25px;
+    margin-top: 20px;
+    justify-items: center;
 
-      @media screen and (max-width: 480px){
-        align-items: start;
-      }
+    .title-and-button {
+      display: flex;
+      justify-content: space-between;
+      flex-direction: row;
+      padding-top: 30px;
+      padding-bottom: 30px;
+      width: 100%;
     }
 
     h1.page-title {
       text-align: center;
+      font-size: 23px;
+      margin-bottom: 15px;
     }
+
     .download-btn {
-      width: 100%;
-      max-width: 250px;
-      text-align: center;
+      width: auto;
+      padding: 10px 20px;
+      max-width: none;
+      margin-top: 0;
+      font-size: 10px;
+    }
+
+    .resume-content {
+      padding-bottom: 50px;
+
+      .resume-image {
+        margin-left: 0; 
+        width: 100%;
+        max-width: 100%;
+      }
     }
   }
 }

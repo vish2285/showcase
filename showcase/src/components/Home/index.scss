@@ -34,9 +34,10 @@
           opacity: 0.6; 
       }
       img { 
-          width: 80px; 
+          width: 56px; 
+          vertical-align: middle;
+          margin-bottom: 20px;
           margin-left: 20px; 
-          margin-right: 3px;
           opacity: 0; 
           height: auto; 
           animation: rotateIn 1s linear both; 
@@ -86,8 +87,13 @@
   
   .home-page{
       h1{
+          padding-left: 10px;
+          padding-top: 40px;
           font-size: 40px; 
           justify-content: center;
+      }
+      h2{
+        padding-left: 10px;
       }
       .text-zone{
           position: initial;
@@ -100,8 +106,9 @@
       }
 
       .logo-container {
+          padding-top: 30px;
           position: relative; 
-          width: 250px;
+          width: 150px;
           height: auto; 
           top: 50px; 
           right: 0; 
@@ -120,6 +127,7 @@
       }
 
       .flat-button{
+          margin-left: 10px;
           float: none;
           display: block;
           width: 125px;

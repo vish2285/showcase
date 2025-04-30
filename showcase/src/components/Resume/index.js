@@ -25,7 +25,7 @@ const Resume = () => {
           />
         </h1>
         <a href={resumePDF} download className="btn download-btn">
-          Download PDF
+          Download
         </a>
       </div>
       <div className="resume-content">
