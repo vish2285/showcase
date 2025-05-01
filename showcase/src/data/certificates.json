@@ -1,6 +1,11 @@
 {
     "Certificate": [
         {
+            "cover": "/certificates/pythonAI.png",
+            "title": "Python for Data Science, AI & Development",
+            "url": "https://www.coursera.org/account/accomplishments/verify/ED0VMQ6FUDW7"
+        },
+        {
             "cover": "/certificates/PE.png",
             "title": "Prompt Engineering",
             "url": "https://learn.deeplearning.ai/accomplishments/ea363a67-1b52-4978-bd8c-a1d55f5211c8?usp=sharing"
