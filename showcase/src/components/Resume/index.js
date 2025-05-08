@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import './index.scss'
 import AnimatedLetters from '../AnimatedLetters'
-import resumeImage from '../../assets/images/resume-preview.png'
-import resumePDF from '../../assets/docs/VishwasResume.pdf'
+import resumeImage from '../../assets/images/updatedresume1.png'
+import resumePDF from '../../assets/docs/UpdatedResume.pdf'
 
 const Resume = () => {
   const [letterClass, setLetterClass] = useState('text-animate')
