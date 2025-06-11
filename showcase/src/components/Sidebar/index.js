@@ -79,7 +79,7 @@ const Sidebar = () => {
       <ul>
         <li>
           <a
-            href="https://www.linkedin.com/in/vishwas-patel-7462aa299/"
+            href="https://www.linkedin.com/in/vishwas2285/"
             target="_blank"
             rel="noreferrer"
           >
