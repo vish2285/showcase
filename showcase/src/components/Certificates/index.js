@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./index.scss";
 import AnimatedLetters from "../AnimatedLetters";
 import certificates from "../../data/certificates.json";
+import Loader from "react-loaders";
 
 const Certificates = () => {
     const [letterClass, setLetterClass] = useState('text-animate');
@@ -40,6 +41,7 @@ const Certificates = () => {
     };
 
     return (
+        <>
         <div className="container Certificates-page">
             <h1 className="page-title">
                 <AnimatedLetters
@@ -50,6 +52,8 @@ const Certificates = () => {
             </h1>
             <div>{renderCertificates(certificates.Certificate)}</div>
         </div>
+        <Loader type="pacman" />
+        </>
     );
 };
 

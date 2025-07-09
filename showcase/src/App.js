@@ -6,12 +6,13 @@ import Contact from './components/Contact'
 import Layout from './components/Layout'
 import Portfolio from './components/Portfolio'
 import './App.scss'
-import Certificate from './components/Certificates';
+// import Certificate from './components/Certificates';
 import Resume from './components/Resume';
+import ProjectDetail from './components/Portfolio/ProjectDetail';
 
 function App() {
   useEffect(() => {
-    document.title = 'Vishwas\'s Portfolio';
+    document.title = "Vishwas's Portfolio";
   }, []);
   return (
     <>
@@ -21,7 +22,8 @@ function App() {
           <Route path="about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/portfolio" element={<Portfolio />} />
-          <Route path="/certificate" element={<Certificate/>} />
+          <Route path="/portfolio/:id" element={<ProjectDetail />} />
+          {/* <Route path="/certificate" element={<Certificate/>} /> */}
           <Route path="/resume" element={<Resume/>} />
         </Route>
       </Routes>

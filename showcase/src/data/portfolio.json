@@ -2,7 +2,7 @@
     "portfolio": [
         {
             "cover": "/portfolio/currentDashboard.png",
-            "title": "Alvy AI- In Progress",
+            "title": "Alvy AI - In Progress",
             "description": "TypeScript, React, Tailwind CSS, Convex, AssemblyAI, Docker, AWS",
             "url": "https://github.com/vish2285/Alvy-AI"
         },

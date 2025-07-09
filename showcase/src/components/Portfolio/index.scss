@@ -1,7 +1,3 @@
-body {
-  cursor: none;
-}
-
 @keyframes fadeUp {
   from {
     opacity: 0;
@@ -102,13 +98,11 @@ body {
       text-transform: uppercase;
       font-weight: 700;
       transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
-      cursor: none;
     }
 
     .btn:hover {
       transform: translateY(-3px);
       background: #bfdbfe;
-      cursor: none;
     }
 
     &:after {
@@ -182,5 +176,55 @@ body {
       width: 90vh;
       height: 55vh;
     }
+  }
+}
+
+.portfolio-responsive {
+  background: #fff;
+  color: #000;
+  min-height: 100vh;
+  padding: 40px 0;
+}
+
+.portfolio-list {
+  max-width: 700px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.portfolio-list-item {
+  margin-bottom: 0;
+  padding: 16px 12px;
+  border-radius: 10px;
+  background: #f8f8f8;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+}
+
+@media (max-width: 900px) {
+  .portfolio-responsive {
+    padding: 24px 0;
+  }
+  .portfolio-list {
+    max-width: 98vw;
+    padding: 0 4vw;
+  }
+  .portfolio-list-item {
+    padding: 12px 6px;
+  }
+}
+
+@media (max-width: 600px) {
+  .portfolio-responsive {
+    padding: 12px 0;
+  }
+  .portfolio-list {
+    padding: 0 2vw;
+    gap: 18px;
+  }
+  .portfolio-list-item {
+    padding: 8px 2px;
+    font-size: 15px;
   }
 }
