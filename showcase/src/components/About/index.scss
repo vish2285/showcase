@@ -89,6 +89,10 @@
     align-items: center;
     gap: 12px;
     width: 100vw;
+    min-height: auto;
+    overflow-x: hidden;
+    box-sizing: border-box;
+    padding: 20px 0;
   }
   .about-sidebar {
     width: 100%;
@@ -98,6 +102,8 @@
     border-radius: 0;
     box-shadow: none;
     align-items: center;
+    position: relative;
+    box-sizing: border-box;
   }
   .about-profile-pic {
     width: 120px;
@@ -116,10 +122,15 @@
     min-width: 0;
     margin: 0;
     font-size: 15px;
+    position: relative;
+    box-sizing: border-box;
   }
 }
 
 @media (max-width: 600px) {
+  .about-responsive {
+    padding: 15px 0;
+  }
   .about-sidebar {
     padding: 10px 2vw 8px 2vw;
   }

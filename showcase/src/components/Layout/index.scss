@@ -120,12 +120,17 @@ p {
 @media screen and (max-width: 1200px) {
   .page {
     position: initial;
+    height: auto;
+    overflow-x: hidden;
+    box-sizing: border-box;
   }
 
   .container {
     position: initial;
     height: auto;
     min-height: auto;
+    overflow-x: hidden;
+    box-sizing: border-box;
 
     &.contact-page,
     &.about-page,
