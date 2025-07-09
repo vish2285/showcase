@@ -220,7 +220,7 @@
 
     .hamburger-icon,
     .close-icon {
-      position: absolute;
+      position: relative;
       top: 15px;
       right: 15px;
       display: block;
@@ -253,7 +253,7 @@
     }
 
     .hamburger-icon {
-      position: fixed;
+      position: relative;
       top: 20px;
       right: 20px;
       z-index: 1001;
