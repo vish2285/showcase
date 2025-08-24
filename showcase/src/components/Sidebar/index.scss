@@ -40,6 +40,12 @@
       height: 51px;
       position: relative;
       text-decoration: none;
+      
+      // Ensure no borders, backgrounds, or special styling
+      border: none !important;
+      background: none !important;
+      outline: none !important;
+      box-shadow: none !important;
 
       i {
         transition: all 0.3s ease-out;
@@ -94,11 +100,39 @@
       &:after {
         content: 'PORTFOLIO';
       }
+      
+      // Ensure portfolio link always looks the same as other links
+      color: #4d4d4e !important;
+      
+      svg {
+        color: #4d4d4e !important;
+      }
+      
+      &:hover {
+        color: #2d73b5 !important;
+        
+        svg {
+          color: #2d73b5 !important;
+        }
+      }
+      
+      // Remove any borders, backgrounds, or special styling
+      border: none !important;
+      background: none !important;
+      outline: none !important;
+      box-shadow: none !important;
+      
+      // Ensure no special positioning or sizing
+      position: relative !important;
+      width: auto !important;
+      height: auto !important;
+      padding: 0 !important;
+      margin: 0 !important;
     }
 
     a.resume-link {
       &:after {
-        content: 'Resume';
+        content: 'CV';
       }
     }
 
@@ -110,6 +144,23 @@
       a.active {
         svg {
           color: #2d73b5;
+        }
+      }
+    }
+    
+    // Override any active link styling to keep consistent appearance
+    a.active {
+      color: #4d4d4e !important;
+      
+      svg {
+        color: #4d4d4e !important;
+      }
+      
+      &:hover {
+        color: #2d73b5 !important;
+        
+        svg {
+          color: #2d73b5 !important;
         }
       }
     }

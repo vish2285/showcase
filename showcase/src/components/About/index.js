@@ -1,21 +1,11 @@
-import { useEffect, useState } from 'react'
 import './index.scss'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faMapMarkerAlt, faUniversity, faEnvelope } from '@fortawesome/free-solid-svg-icons'
-import { faGoogleScholar, faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons'
+import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons'
 import profilePic from '../../assets/images/IMG_1785.jpeg'
 import Loader from 'react-loaders'
 
 const About = () => {
-  const [letterClass, setLetterClass] = useState('text-animate');
-
-  useEffect(() => {
-    const timeoutId = setTimeout(() => {
-      setLetterClass('text-animate-hover');
-    }, 4000);
-    return () => clearTimeout(timeoutId);
-  }, []);
-
   return (
     <>
       <div className="container about-page about-responsive">
@@ -45,7 +35,6 @@ const About = () => {
           <section style={{ marginBottom: 40 }}>
             <h2 style={{ fontSize: 28, fontWeight: 700, marginBottom: 18 }}>Experience</h2>
             <ul style={{ fontSize: 17, lineHeight: 1.7, paddingLeft: 20 }}>
-              <li>Co-founder/Lead Developer at <a href="#" style={{ color: '#60a5fa', textDecoration: 'underline' }}>Alvy-AI</a> where I led full stack development</li>
               <li>Development Engineering Intern at <a href="#" style={{ color: '#60a5fa', textDecoration: 'underline' }}>City of Sacramento</a> </li>
               <li>Freelance Software Developer <a href="#" style={{ color: '#60a5fa', textDecoration: 'underline' }}>Self-Employed</a> developed 10+ websites for local startups</li>
               <li>Mechanical Engineering and CAD Design Intern at <a href="#" style={{ color: '#60a5fa', textDecoration: 'underline' }}>BAPS Charities</a> where I built a map for the second-largest Hindu temple in the world.</li>

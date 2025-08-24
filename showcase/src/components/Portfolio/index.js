@@ -24,26 +24,42 @@ const Portfolio = () => {
         <div className="portfolio-list">
           {portfolioData.portfolio.map((project, idx) => (
             <div key={idx} className="portfolio-list-item">
-              <div>
-                <button
-                  style={{
-                    background: 'none',
-                    border: 'none',
-                    padding: 0,
-                    margin: 0,
-                    color: '#1e40af',
-                    fontWeight: 700,
-                    fontSize: 24,
-                    textDecoration: 'underline',
-                    cursor: 'pointer',
-                    textAlign: 'left',
-                  }}
-                  onClick={() => navigate(`/portfolio/${idx}`)}
-                >
-                  {project.title}
-                </button>
+              <div className="portfolio-item-content">
+                {project.cover && (
+                  <div className="portfolio-image-container">
+                    <img 
+                      src={project.cover} 
+                      alt={project.title} 
+                      className="portfolio-thumbnail"
+                    />
+                  </div>
+                )}
+                <div className="portfolio-text-content">
+                  <button
+                    className="portfolio-title-btn"
+                    onClick={() => navigate(`/portfolio/${idx}`)}
+                  >
+                    {project.title}
+                  </button>
+                  <div className="portfolio-description">{project.description}</div>
+                  <div className="portfolio-links">
+                    <a 
+                      href={project.url} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="portfolio-link"
+                    >
+                      View Project →
+                    </a>
+                    <button
+                      className="portfolio-detail-btn"
+                      onClick={() => navigate(`/portfolio/${idx}`)}
+                    >
+                      View Details →
+                    </button>
+                  </div>
+                </div>
               </div>
-              <div style={{ color: '#444', fontSize: 18, marginTop: 6 }}>{project.description}</div>
             </div>
           ))}
         </div>

@@ -12,6 +12,7 @@ import {
   faBars,
   faFile,
 } from '@fortawesome/free-solid-svg-icons'
+
 const Sidebar = () => {
   const [showNav, setShowNav] = useState(false)
   return (
@@ -55,7 +56,6 @@ const Sidebar = () => {
         >
           <FontAwesomeIcon icon={faFile} color="#4d4d4e" />
         </NavLink>
-
         <NavLink
           exact="true"
           activeclassname="active"

@@ -1,14 +1,20 @@
 {
     "portfolio": [
         {
-            "cover": "/portfolio/currentDashboard.png",
-            "title": "Alvy AI - In Progress",
-            "description": "TypeScript, React, Tailwind CSS, Convex, AssemblyAI, Docker, AWS",
-            "url": "https://github.com/vish2285/Alvy-AI"
+            "cover": "/portfolio/finLit.png",
+            "title": "FinLit - Finincal Literacy Quiz App",
+            "description": "React, FastAPI, SQLAlchemy, Neon, OpenAI, Clerk",
+            "url": "https://github.com/vish2285/codeAI"
+        },
+        {
+            "cover": "",
+            "title": "AP PDF Generator",
+            "description": "Python, pandas, openpyxl, ReportLab",
+            "url": "https://github.com/vish2285"
         },
         {
             "cover": "/portfolio/dash.png",
-            "title": "xpenza",
+            "title": "Xpenza - Expense Tracker Full Stack App",
             "description": "Clerk, Drizzle ORM, React, Tailwind, JavaScript, Next.js, Postgresql",
             "url": "https://xpenza.vercel.app/"
         },

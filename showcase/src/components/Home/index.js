@@ -9,7 +9,7 @@ import Logo from './Logo';
 const Home = () => {
     const [letterClass, setLetterClass] = useState('text-animate')
     const nameArray = "ishwas, ".split("");
-    const jobArray = "Software Engineer.".split("");
+    const jobArray = "Data Science & AI/ML".split("");
 
     useEffect(() => {
         const timerId = setTimeout(() => {
@@ -36,7 +36,7 @@ const Home = () => {
                 <br /> 
                 <AnimatedLetters letterClass={letterClass} strArray={jobArray} idx={15} /> 
                 </h1>
-                <h2>Computer Science, Software Engineer & AI, 2027 at UC Davis </h2>
+                <h2>BS Computer Science @ UC Davis </h2>
                 <Link to="/contact" className="flat-button">Contact Me</Link>
             </div>
             <Logo className="Home" />
