@@ -29,7 +29,7 @@ const About = () => {
           <section style={{ marginBottom: 40 }}>
             <h2 style={{ fontSize: 28, fontWeight: 700, marginBottom: 20 }}>About Me</h2>
             <p style={{ fontSize: 18, lineHeight: 1.7, marginBottom: 10 }}>
-              Hey! My name is Vishwas, I'm currently an undergraduate student at UC Davis studying Computer Science and interested in the applications of machine learning/deep learning to improve and create new systems.
+              I'm passionate about leveraging artificial intelligence and machine learning to solve complex problems and create innovative solutions. My academic focus at UC Davis centers around computer science fundamentals, with a particular interest in deep learning algorithms, neural networks, and their applications in cybersecurity and system optimization. I enjoy exploring how AI can enhance security protocols, improve user experiences, and drive technological advancement across various domains.
             </p>
           </section>
           <section style={{ marginBottom: 40 }}>
