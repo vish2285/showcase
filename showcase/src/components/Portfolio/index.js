@@ -22,8 +22,6 @@ const Portfolio = () => {
             Featured Projects
           </h1>
         </div>
-
-        {/* Projects Grid */}
         <div className="portfolio-container">
           <div className="projects-grid">
             {portfolioData.portfolio.map((project) => (
@@ -31,7 +29,6 @@ const Portfolio = () => {
                 key={project.id}
                 className="project-card"
               >
-                {/* Project Image */}
                 <div className="project-image-container">
                   <img
                     src={project.cover}
@@ -39,20 +36,16 @@ const Portfolio = () => {
                     className="project-image"
                   />
                 </div>
-
-                {/* Project Content */}
                 <div className="project-content">
                   {/* Title */}
                   <h3 className="project-title">
                     {project.title}
                   </h3>
 
-                  {/* Description */}
                   <p className="project-description">
                     {project.description}
                   </p>
 
-                  {/* Tech Stack */}
                   <div className="tech-stack">
                     {project.technologies.map((tech, index) => (
                       <span
@@ -63,10 +56,7 @@ const Portfolio = () => {
                       </span>
                     ))}
                   </div>
-
-                  {/* Action Buttons */}
                   <div className="project-buttons">
-                    {/* Code Button */}
                     <a
                       href={project.codeAvailable ? project.codeUrl : "#"}
                       className={`project-button ${project.codeAvailable ? 'button-available' : 'button-disabled'}`}
@@ -84,8 +74,6 @@ const Portfolio = () => {
                       </svg>
                       {project.codeAvailable ? "Code" : "Code Soon"}
                     </a>
-
-                    {/* Live Demo Button */}
                     <a
                       href={project.liveAvailable ? project.liveUrl : "#"}
                       className={`project-button ${project.liveAvailable ? 'button-available' : 'button-disabled'}`}

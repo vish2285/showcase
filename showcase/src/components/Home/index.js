@@ -43,8 +43,7 @@ const Home = () => {
                     
                     <p className="description">
                         Computer Science student at UC Davis passionate about machine learning, 
-                        deep learning, and cybersecurity. Building innovative solutions for 
-                        tomorrow's challenges.
+                        deep learning, and cybersecurity.
                     </p>
                     
                     <div className="button-group">
@@ -57,26 +56,6 @@ const Home = () => {
                     </div>
                 </div>
                 
-                <div className="visual-section">
-                    <div className="feature-grid">
-                        <div className="feature-item">
-                            <h3>AI/ML</h3>
-                            <p>Machine Learning & Deep Learning</p>
-                        </div>
-                        <div className="feature-item">
-                            <h3>Cybersecurity</h3>
-                            <p>Security & Protection</p>
-                        </div>
-                        <div className="feature-item">
-                            <h3>Development</h3>
-                            <p>Full-Stack Solutions</p>
-                        </div>
-                        <div className="feature-item">
-                            <h3>Research</h3>
-                            <p>Innovation & Discovery</p>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     );
