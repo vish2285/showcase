@@ -1,52 +1,70 @@
 {
     "portfolio": [
         {
+            "id": 1,
             "cover": "/portfolio/finLit.png",
-            "title": "FinLit - Finincal Literacy Quiz App",
-            "description": "React, FastAPI, SQLAlchemy, Neon, OpenAI, Clerk",
-            "url": "https://github.com/vish2285/codeAI"
+            "title": "FinLit",
+            "description": "A comprehensive financial literacy quiz app with AI-powered insights and personalized learning paths built with React and FastAPI",
+            "technologies": ["React", "FastAPI", "SQLAlchemy", "OpenAI"],
+            "codeUrl": "https://github.com/vish2285/codeAI",
+            "liveUrl": "https://finlit-ten.vercel.app/",
+            "codeAvailable": true,
+            "liveAvailable": true
         },
         {
-            "cover": "",
-            "title": "AP PDF Generator",
-            "description": "Python, pandas, openpyxl, ReportLab",
-            "url": "https://github.com/vish2285"
-        },
-        {
+            "id": 2,
             "cover": "/portfolio/dash.png",
-            "title": "Xpenza - Expense Tracker Full Stack App",
-            "description": "Clerk, Drizzle ORM, React, Tailwind, JavaScript, Next.js, Postgresql",
-            "url": "https://xpenza.vercel.app/"
+            "title": "Xpenza",
+            "description": "A full-featured expense tracker with advanced analytics, budget management, and financial insights built with Next.js and PostgreSQL",
+            "technologies": ["Next.js", "PostgreSQL", "Tailwind CSS", "Prisma"],
+            "codeUrl": "https://github.com/vish2285/xpenza--",
+            "liveUrl": "https://xpenza.vercel.app/",
+            "codeAvailable": true,
+            "liveAvailable": true
         },
         {
-            "cover": "/portfolio/newPort.png",
-            "title": "Portfolio",
-            "description": "HTML, CSS, React, JSX, Tailwind, JavaScript, Vite",
-            "url": "https://vishthefish.vercel.app/"
-        },
-        {
+            "id": 3,
             "cover": "/portfolio/landingPage.png",
             "title": "Luminum",
-            "description": "HTML, CSS, React, JSX, Tailwind, JavaScript, Vite",
-            "url": "https://6619ba510093cd0f11ed27d6--symphonious-dusk-96a4ed.netlify.app"
+            "description": "A modern landing page with dynamic animations and responsive design showcasing innovative web development techniques",
+            "technologies": ["React", "Tailwind CSS", "Framer Motion", "Vite"],
+            "codeUrl": "https://github.com/vish2285/landing-page",
+            "liveUrl": "https://6619ba510093cd0f11ed27d6--symphonious-dusk-96a4ed.netlify.app/",
+            "codeAvailable": true,
+            "liveAvailable": true
         },
         {
-            "cover": "/portfolio/oldPortfolio.png",
-            "title": "Old Portfolio",
-            "description": "HTML, CSS, React, JSX, Tailwind, JavaScript, Vite",
-            "url": "https://vishthefish.netlify.app/"
-        },
-        {
+            "id": 4,
             "cover": "/portfolio/signature.png",
             "title": "Signature Web",
-            "description": "HTML, CSS, JavaScript, Canvas API",
-            "url": "https://signature-web.netlify.app/"
+            "description": "An interactive digital signature capture and management system with canvas API integration for secure document signing",
+            "technologies": ["HTML", "CSS", "JavaScript", "Canvas API"],
+            "codeUrl": "https://github.com/vish2285/signature-web",
+            "liveUrl": "https://signature-web.netlify.app/",
+            "codeAvailable": true,
+            "liveAvailable": true
         },
         {
+            "id": 5,
+            "cover": "/portfolio/newPort.png",
+            "title": "Portfolio Website",
+            "description": "A modern, responsive portfolio website showcasing projects, skills, and experience with smooth animations and clean design",
+            "technologies": ["React", "Tailwind CSS", "Framer Motion", "Vercel"],
+            "codeUrl": "https://github.com/vish2285/portfolio",
+            "liveUrl": "https://vishthefish.vercel.app/",
+            "codeAvailable": true,
+            "liveAvailable": true
+        },
+        {
+            "id": 6,
             "cover": "/portfolio/weeklySchedule.png",
             "title": "Weekly Schedule",
-            "description": "HTML, CSS, React, JSX, Tailwind, JavaScript, Vite",
-            "url": "https://661df347ef9bcc7eab003020--animated-dusk-0c3ad3.netlify.app/"
+            "description": "A productivity app for managing weekly schedules with drag-and-drop functionality and calendar integration",
+            "technologies": ["React", "JavaScript", "Local Storage", "CSS Grid"],
+            "codeUrl": "https://github.com/vish2285/weekly-schedule",
+            "liveUrl": "https://661df347ef9bcc7eab003020--animated-dusk-0c3ad3.netlify.app/",
+            "codeAvailable": true,
+            "liveAvailable": true
         }
     ]
 }

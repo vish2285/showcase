@@ -2,51 +2,84 @@ import { useEffect, useState } from 'react';
 import Loader from 'react-loaders';
 import { Link } from 'react-router-dom';
 import LogoV from '../../assets/images/v-logo.svg';
-import AnimatedLetters from '../AnimatedLetters';
 import './index.scss';
-import Logo from './Logo';
 
 const Home = () => {
-    const [letterClass, setLetterClass] = useState('text-animate')
-    const nameArray = "ishwas, ".split("");
-    const jobArray = "AI/ML & Cybersecurity".split("");
+    const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
-        const timerId = setTimeout(() => {
-          setLetterClass('text-animate-hover');
-        }, 4000);
-      
-        return () => {
-          clearTimeout(timerId);
-        };
-      }, []);
+        const timer = setTimeout(() => {
+            setIsLoading(false);
+        }, 2000);
+        return () => clearTimeout(timer);
+    }, []);
 
-    return(
-      <>
-        <div className="container home-page">
-            <div className="text-zone">
-                <h1>
-                <span className={`${letterClass} _8`}>H</span>
-                <span className={`${letterClass} _9`}>i</span>
-                <br /> 
-                <span className={`${letterClass} _10`}>I</span>
-                <span className={`${letterClass} _11`}>'m</span>
-                <img src={LogoV} alt="developer" />
-                <AnimatedLetters letterClass={letterClass} strArray={nameArray} idx={12} />
-                <br /> 
-                <AnimatedLetters letterClass={letterClass} strArray={jobArray} idx={15} /> 
-                </h1>
-                <h2>BS Computer Science @ UC Davis </h2>
-                <p className="about-me">
-                    Hey! My name is Vishwas, I'm currently an undergraduate student at UC Davis studying Computer Science and interested in the applications of machine learning/deep learning to improve and create new systems.
-                </p>
-                <Link to="/contact" className="flat-button">Contact Me</Link>
+    if (isLoading) {
+        return (
+            <div className="container home-page">
+                <div className="loading-container">
+                    <Loader type="pacman" />
+                    <p className="loading-text">Loading...</p>
+                </div>
             </div>
-            <Logo className="Home" />
+        );
+    }
+
+    return (
+        <div className="container home-page">
+            <div className="content-wrapper">
+                <div className="text-section">
+                    <div className="logo-container">
+                        <img src={LogoV} alt="Vishwas Logo" className="logo" />
+                    </div>
+                    
+                    <h1 className="main-title">
+                        Hi, I'm Vishwas
+                    </h1>
+                    
+                    <h2 className="subtitle">
+                        AI/ML & Cybersecurity Specialist
+                    </h2>
+                    
+                    <p className="description">
+                        Computer Science student at UC Davis passionate about machine learning, 
+                        deep learning, and cybersecurity. Building innovative solutions for 
+                        tomorrow's challenges.
+                    </p>
+                    
+                    <div className="button-group">
+                        <Link to="/portfolio" className="primary-button">
+                            View My Work
+                        </Link>
+                        <Link to="/contact" className="secondary-button">
+                            Get In Touch
+                        </Link>
+                    </div>
+                </div>
+                
+                <div className="visual-section">
+                    <div className="feature-grid">
+                        <div className="feature-item">
+                            <h3>AI/ML</h3>
+                            <p>Machine Learning & Deep Learning</p>
+                        </div>
+                        <div className="feature-item">
+                            <h3>Cybersecurity</h3>
+                            <p>Security & Protection</p>
+                        </div>
+                        <div className="feature-item">
+                            <h3>Development</h3>
+                            <p>Full-Stack Solutions</p>
+                        </div>
+                        <div className="feature-item">
+                            <h3>Research</h3>
+                            <p>Innovation & Discovery</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <Loader type="pacman" />
-      </>
-    )
+    );
 }
 
 export default Home

@@ -1,12 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import './index.scss'
 import portfolioData from '../../data/portfolio.json'
-import { useNavigate } from 'react-router-dom'
 import Loader from 'react-loaders'
 
 const Portfolio = () => {
   const [letterClass, setLetterClass] = useState('text-animate')
-  const navigate = useNavigate()
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -17,51 +15,106 @@ const Portfolio = () => {
 
   return (
     <>
-      <div className="container portfolio-page portfolio-responsive">
-        <h1 className="page-title" style={{ color: '#000', fontWeight: 700, fontSize: 36, marginBottom: 40 }}>
-          Portfolio
-        </h1>
-        <div className="portfolio-list">
-          {portfolioData.portfolio.map((project, idx) => (
-            <div key={idx} className="portfolio-list-item">
-              <div className="portfolio-item-content">
-                {project.cover && (
-                  <div className="portfolio-image-container">
-                    <img 
-                      src={project.cover} 
-                      alt={project.title} 
-                      className="portfolio-thumbnail"
-                    />
-                  </div>
-                )}
-                <div className="portfolio-text-content">
-                  <button
-                    className="portfolio-title-btn"
-                    onClick={() => navigate(`/portfolio/${idx}`)}
-                  >
+      <div className="portfolio-page">
+        {/* Header Section */}
+        <div className="portfolio-header">
+          <h1 className="portfolio-title">
+            Featured Projects
+          </h1>
+        </div>
+
+        {/* Projects Grid */}
+        <div className="portfolio-container">
+          <div className="projects-grid">
+            {portfolioData.portfolio.map((project) => (
+              <div
+                key={project.id}
+                className="project-card"
+              >
+                {/* Project Image */}
+                <div className="project-image-container">
+                  <img
+                    src={project.cover}
+                    alt={project.title}
+                    className="project-image"
+                  />
+                </div>
+
+                {/* Project Content */}
+                <div className="project-content">
+                  {/* Title */}
+                  <h3 className="project-title">
                     {project.title}
-                  </button>
-                  <div className="portfolio-description">{project.description}</div>
-                  <div className="portfolio-links">
-                    <a 
-                      href={project.url} 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      className="portfolio-link"
+                  </h3>
+
+                  {/* Description */}
+                  <p className="project-description">
+                    {project.description}
+                  </p>
+
+                  {/* Tech Stack */}
+                  <div className="tech-stack">
+                    {project.technologies.map((tech, index) => (
+                      <span
+                        key={index}
+                        className="tech-tag"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+
+                  {/* Action Buttons */}
+                  <div className="project-buttons">
+                    {/* Code Button */}
+                    <a
+                      href={project.codeAvailable ? project.codeUrl : "#"}
+                      className={`project-button ${project.codeAvailable ? 'button-available' : 'button-disabled'}`}
+                      onClick={(e) => {
+                        if (!project.codeAvailable) e.preventDefault();
+                      }}
                     >
-                      View Project →
+                      <svg className="button-icon" viewBox="0 0 24 24">
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"
+                        />
+                      </svg>
+                      {project.codeAvailable ? "Code" : "Code Soon"}
                     </a>
-                    <button
-                      className="portfolio-detail-btn"
-                      onClick={() => navigate(`/portfolio/${idx}`)}
+
+                    {/* Live Demo Button */}
+                    <a
+                      href={project.liveAvailable ? project.liveUrl : "#"}
+                      className={`project-button ${project.liveAvailable ? 'button-available' : 'button-disabled'}`}
+                      onClick={(e) => {
+                        if (!project.liveAvailable) e.preventDefault();
+                      }}
                     >
-                      View Details →
-                    </button>
+                      <svg className="button-icon" viewBox="0 0 24 24">
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                        />
+                      </svg>
+                      {project.liveAvailable ? "Live Demo" : "Live Demo Soon"}
+                    </a>
                   </div>
                 </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
+
+          {/* View More Button */}
+          <div className="view-more-container">
+            <button className="view-more-button">
+              View All Projects
+            </button>
+          </div>
         </div>
       </div>
       <Loader type="pacman" />
