@@ -38,14 +38,15 @@ const Home = () => {
                     </h1>
                     
                     <h2 className="subtitle">
-                        AI/ML & Cybersecurity Specialist
+                        Computer Science @ UC Davis | Minors in Economics & Neuroscience/Biotech
                     </h2>
+
                     
                     <p className="description">
-                        Computer Science student at UC Davis passionate about machine learning, 
-                        deep learning, and cybersecurity.
+                        Computer Science student at UC Davis passionate about machine learning and 
+                        deep learning
                     </p>
-                    
+
                     <div className="button-group">
                         <Link to="/portfolio" className="primary-button">
                             View My Work
