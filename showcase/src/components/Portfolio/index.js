@@ -1,18 +1,28 @@
-import React, { useEffect, useState } from 'react'
 import './index.scss'
+import {useState, useEffect} from 'react'
 import portfolioData from '../../data/portfolio.json'
 import Loader from 'react-loaders'
 
 const Portfolio = () => {
-  const [letterClass, setLetterClass] = useState('text-animate')
+  const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      setLetterClass('text-animate-hover')
-    }, 3000)
+      setIsLoading(false)
+    }, 1500) 
     return () => clearTimeout(timer)
   }, [])
 
+  if (isLoading) {
+    return (
+      <div className="portfolio-page">
+        <div className="loading-container">
+          <Loader type="pacman" />
+          <p className="loading-text">Loading Projects...</p>
+        </div>
+      </div>
+    )
+  }
   return (
     <>
       <div className="portfolio-page">
@@ -58,7 +68,9 @@ const Portfolio = () => {
                   </div>
                   <div className="project-buttons">
                     <a
-                      href={project.codeAvailable ? project.codeUrl : "#"}
+                      href={project.codeAvailable ? project.codeUrl : "#" }
+                      target="_blank" 
+                      rel="noreferrer"
                       className={`project-button ${project.codeAvailable ? 'button-available' : 'button-disabled'}`}
                       onClick={(e) => {
                         if (!project.codeAvailable) e.preventDefault();
@@ -76,6 +88,8 @@ const Portfolio = () => {
                     </a>
                     <a
                       href={project.liveAvailable ? project.liveUrl : "#"}
+                      target="_blank" 
+                      rel="noreferrer"
                       className={`project-button ${project.liveAvailable ? 'button-available' : 'button-disabled'}`}
                       onClick={(e) => {
                         if (!project.liveAvailable) e.preventDefault();
@@ -105,7 +119,6 @@ const Portfolio = () => {
           </div>
         </div>
       </div>
-      <Loader type="pacman" />
     </>
   )
 }
