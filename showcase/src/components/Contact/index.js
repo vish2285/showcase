@@ -1,7 +1,7 @@
 import { useEffect, useState, useRef } from 'react'
-import Loader from 'react-loaders'
 import emailjs from '@emailjs/browser'
 import AnimatedLetters from '../AnimatedLetters'
+import Loading from '../Loading'
 import './index.scss'
 
 const Contact = () => {
@@ -9,6 +9,7 @@ const Contact = () => {
   const [isLoading, setIsLoading] = useState(false)
   const [isSubmitted, setIsSubmitted] = useState(false)
   const [activeTab, setActiveTab] = useState('form')
+  const [isPageLoading, setIsPageLoading] = useState(true)
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -20,7 +21,8 @@ const Contact = () => {
   useEffect(() => {
     const timeoutId = setTimeout(() => {
       setLetterClass('text-animate-hover')
-    }, 3000)
+      setIsPageLoading(false)
+    }, 2000)
 
     return () => clearTimeout(timeoutId)
   }, [])
@@ -92,25 +94,12 @@ const Contact = () => {
     }
   ]
 
+  if (isPageLoading) {
+    return <Loading message="Loading Contact..." showTitle={true} title="Contact" subtitle="Preparing communication tools" />;
+  }
+
   if (isLoading) {
-    return (
-      <div className="container contact-page">
-        <div className="loading-container">
-          <div className="loading-animation">
-            <Loader type="pacman" />
-            <div className="loading-content">
-              <h2>Preparing Your Message</h2>
-              <p>Securely sending your contact request...</p>
-              <div className="loading-dots">
-                <span></span>
-                <span></span>
-                <span></span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    )
+    return <Loading message="Sending Message..." showTitle={true} title="Preparing Your Message" subtitle="Securely sending your contact request..." />;
   }
 
   return (

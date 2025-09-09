@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
-import Loader from 'react-loaders';
 import { Link } from 'react-router-dom';
 import LogoV from '../../assets/images/v-logo.svg';
+import Loading from '../Loading';
 import './index.scss';
 
 const Home = () => {
@@ -15,14 +15,7 @@ const Home = () => {
     }, []);
 
     if (isLoading) {
-        return (
-            <div className="container home-page">
-                <div className="loading-container">
-                    <Loader type="pacman" />
-                    <p className="loading-text">Loading...</p>
-                </div>
-            </div>
-        );
+        return <Loading message="Loading Home..." showTitle={true} title="Welcome" subtitle="Preparing your experience" />;
     }
 
     return (

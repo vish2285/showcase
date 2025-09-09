@@ -1,7 +1,7 @@
 import './index.scss'
 import {useState, useEffect} from 'react'
 import portfolioData from '../../data/portfolio.json'
-import Loader from 'react-loaders'
+import Loading from '../Loading'
 
 const Portfolio = () => {
   const [isLoading, setIsLoading] = useState(true)
@@ -14,14 +14,7 @@ const Portfolio = () => {
   }, [])
 
   if (isLoading) {
-    return (
-      <div className="portfolio-page">
-        <div className="loading-container">
-          <Loader type="pacman" />
-          <p className="loading-text">Loading Projects...</p>
-        </div>
-      </div>
-    )
+    return <Loading message="Loading Projects..." showTitle={true} title="Portfolio" subtitle="Fetching my latest work" />;
   }
   return (
     <>
