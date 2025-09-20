@@ -6,7 +6,7 @@ import Contact from './components/Contact'
 import Layout from './components/Layout'
 import Portfolio from './components/Portfolio'
 import './App.scss'
-import Resume from './components/Resume';
+// import Resume from './components/Resume';
 import ProjectDetail from './components/Portfolio/ProjectDetail';
 
 function App() {
@@ -22,7 +22,7 @@ function App() {
           <Route path="/contact" element={<Contact />} />
           <Route path="/portfolio" element={<Portfolio />} />
           <Route path="/portfolio/:id" element={<ProjectDetail />} />
-          <Route path="/resume" element={<Resume/>} />
+          {/* <Route path="/resume" element={<Resume/>} /> */}
         </Route>
       </Routes>
     </>

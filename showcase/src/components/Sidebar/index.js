@@ -80,7 +80,7 @@ const Sidebar = () => {
         >
           <FontAwesomeIcon icon={faSuitcase} color="#4d4d4e" />
         </NavLink>
-        <NavLink
+        {/* <NavLink
           exact="true"
           activeclassname="active"
           className="resume-link"
@@ -88,7 +88,7 @@ const Sidebar = () => {
           onClick={closeNav}
         >
           <FontAwesomeIcon icon={faFile} color="#4d4d4e" />
-        </NavLink>
+        </NavLink> */}
         <NavLink
           exact="true"
           activeclassname="active"
