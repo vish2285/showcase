@@ -46,9 +46,10 @@ const About = () => {
         <section style={{ marginBottom: 40 }}>
           <h2 style={{ fontSize: 28, fontWeight: 700, marginBottom: 18 }}>Experience</h2>
           <ul style={{ fontSize: 17, lineHeight: 1.7, paddingLeft: 20 }}>
-            <li>Development Engineering Intern at <a href="#" style={{ color: '#60a5fa', textDecoration: 'underline' }}>City of Sacramento</a> </li>
-            <li>Freelance Software Developer <a href="#" style={{ color: '#60a5fa', textDecoration: 'underline' }}>Self-Employed</a> developed 10+ websites for local startups</li>
-            <li>Mechanical Engineering and CAD Design Intern at <a href="#" style={{ color: '#60a5fa', textDecoration: 'underline' }}>BAPS Charities</a> where I built a map for the second-largest Hindu temple in the world.</li>
+            <li>Development Engineering Intern at <a href="https://www.cityofsacramento.gov/" style={{ color: '#60a5fa', textDecoration: 'underline' }}>City of Sacramento</a> </li>
+            <li>AV/IT Volunteer at <a href="https://www.baps.org/" style={{ color: '#60a5fa', textDecoration: 'underline' }}>BAPS</a> where I managed AV/IT infrastructure for weekly events serving 100+ attendees</li>
+            <li>Freelance Software Developer Self-Employed developed 5+ websites for local startups</li>
+            <li>Mechanical Engineering and CAD Design Volunteer at <a href="https://www.baps.org/" style={{ color: '#60a5fa', textDecoration: 'underline' }}>BAPS</a> where I built a map for the second-largest Hindu temple in the world.</li>
           </ul>
         </section>
         <section>
