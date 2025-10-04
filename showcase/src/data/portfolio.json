@@ -2,6 +2,17 @@
     "portfolio": [
         {
             "id": 1,
+            "cover": "/portfolio/lablink.png",
+            "title": "LabLink",
+            "description": "Connect UC Davis students with professors aligned to their research interests, featuring hybrid matching algorithms (TF-IDF + BM25 + semantic embeddings) and automated email drafting",
+            "technologies": ["React", "TypeScript", "FastAPI", "SQLAlchemy", "PostgreSQL", "Tailwind CSS", "Framer Motion"],
+            "codeUrl": "https://github.com/vish2285/LabLink",
+            "liveUrl": "https://www.lablinkdavis.org/",
+            "codeAvailable": true,
+            "liveAvailable": true
+        },
+        {
+            "id": 2,
             "cover": "/portfolio/finLit.png",
             "title": "FinLit",
             "description": "A comprehensive financial literacy quiz app with AI-powered insights and personalized learning paths built with React and FastAPI",
@@ -12,7 +23,7 @@
             "liveAvailable": true
         },
         {
-            "id": 2,
+            "id": 3,
             "cover": "/portfolio/dash.png",
             "title": "Xpenza",
             "description": "A full-featured expense tracker with advanced analytics, budget management, and financial insights built with Next.js and PostgreSQL",
@@ -23,7 +34,7 @@
             "liveAvailable": true
         },
         {
-            "id": 3,
+            "id": 4,
             "cover": "/portfolio/landingPage.png",
             "title": "Luminum",
             "description": "A modern landing page with dynamic animations and responsive design showcasing innovative web development techniques",
@@ -34,7 +45,7 @@
             "liveAvailable": true
         },
         {
-            "id": 4,
+            "id": 5,
             "cover": "/portfolio/signature.png",
             "title": "Signature Web",
             "description": "An interactive digital signature capture and management system with canvas API integration for secure document signing",
@@ -45,7 +56,7 @@
             "liveAvailable": true
         },
         {
-            "id": 5,
+            "id": 6,
             "cover": "/portfolio/newPort.png",
             "title": "Portfolio Website",
             "description": "A modern, responsive portfolio website showcasing projects, skills, and experience with smooth animations and clean design",
@@ -56,7 +67,7 @@
             "liveAvailable": true
         },
         {
-            "id": 6,
+            "id": 7,
             "cover": "/portfolio/weeklySchedule.png",
             "title": "Weekly Schedule",
             "description": "A productivity app for managing weekly schedules with drag-and-drop functionality and calendar integration",
