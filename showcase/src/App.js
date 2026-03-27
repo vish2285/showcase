@@ -1,30 +1,29 @@
-import React, { useEffect } from 'react';
-import { Route, Routes } from 'react-router-dom'
-import Home from './components/Home'
-import About from './components/About'
-import Contact from './components/Contact'
-import Layout from './components/Layout'
-import Portfolio from './components/Portfolio'
+import React, { useEffect } from 'react'
+import { Routes, Route, useLocation } from 'react-router-dom'
+import { AnimatePresence } from 'framer-motion'
+import Navbar from './components/Navbar'
+import Cursor from './components/Cursor'
+import Home from './pages/Home'
+import ProjectDetail from './components/Portfolio/ProjectDetail'
 import './App.scss'
-// import Resume from './components/Resume';
-import ProjectDetail from './components/Portfolio/ProjectDetail';
 
 function App() {
+  const location = useLocation()
+
   useEffect(() => {
-    document.title = "Vishwas's Portfolio";
-  }, []);
+    document.title = "Vishwas Patel"
+  }, [])
+
   return (
     <>
-      <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route index element={<Home />} />
-          <Route path="about" element={<About />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/portfolio" element={<Portfolio />} />
-          <Route path="/portfolio/:id" element={<ProjectDetail />} />
-          {/* <Route path="/resume" element={<Resume/>} /> */}
-        </Route>
-      </Routes>
+      <Cursor />
+      <Navbar />
+      <AnimatePresence mode="wait">
+        <Routes location={location} key={location.pathname}>
+          <Route path="/" element={<Home />} />
+          <Route path="/project/:id" element={<ProjectDetail />} />
+        </Routes>
+      </AnimatePresence>
     </>
   )
 }

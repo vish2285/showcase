@@ -1,31 +1,92 @@
-import { useEffect, useState, useRef } from 'react'
+import { useRef, useState } from 'react'
 import emailjs from '@emailjs/browser'
-import AnimatedLetters from '../AnimatedLetters'
-import Loading from '../Loading'
-import './index.scss'
+import { motion } from 'framer-motion'
 
-const Contact = () => {
-  const [letterClass, setLetterClass] = useState('text-animate')
+const inputStyle = {
+  background: 'var(--panel)',
+  border: '1px solid var(--border-subtle)',
+  borderRadius: 8,
+  padding: '12px 16px',
+  color: 'var(--text-primary)',
+  fontFamily: 'Inter, sans-serif',
+  fontSize: 15,
+  width: '100%',
+  outline: 'none',
+  boxSizing: 'border-box',
+  transition: 'border-color 0.2s, box-shadow 0.2s',
+}
+
+function FormInput({ style, ...props }) {
+  const [focused, setFocused] = useState(false)
+  return (
+    <input
+      {...props}
+      style={{
+        ...inputStyle,
+        ...(focused
+          ? {
+              borderColor: 'var(--cyan)',
+              boxShadow: '0 0 0 3px rgba(0,212,255,0.1)',
+            }
+          : {}),
+        ...style,
+      }}
+      onFocus={() => setFocused(true)}
+      onBlur={() => setFocused(false)}
+    />
+  )
+}
+
+function FormTextarea({ style, ...props }) {
+  const [focused, setFocused] = useState(false)
+  return (
+    <textarea
+      {...props}
+      style={{
+        ...inputStyle,
+        resize: 'vertical',
+        ...(focused
+          ? {
+              borderColor: 'var(--cyan)',
+              boxShadow: '0 0 0 3px rgba(0,212,255,0.1)',
+            }
+          : {}),
+        ...style,
+      }}
+      onFocus={() => setFocused(true)}
+      onBlur={() => setFocused(false)}
+    />
+  )
+}
+
+const socialLinks = [
+  {
+    icon: '⎇',
+    label: 'GitHub',
+    href: 'https://github.com/vish2285',
+  },
+  {
+    icon: '🔗',
+    label: 'LinkedIn',
+    href: 'https://linkedin.com/in/vishwas2285',
+  },
+  {
+    icon: '✉',
+    label: 'Email',
+    href: 'mailto:vdppatel@ucdavis.edu',
+  },
+]
+
+export default function Contact() {
+  const form = useRef()
   const [isLoading, setIsLoading] = useState(false)
   const [isSubmitted, setIsSubmitted] = useState(false)
-  const [activeTab, setActiveTab] = useState('form')
-  const [isPageLoading, setIsPageLoading] = useState(true)
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     subject: '',
-    message: ''
+    message: '',
   })
-  const form = useRef()
-
-  useEffect(() => {
-    const timeoutId = setTimeout(() => {
-      setLetterClass('text-animate-hover')
-      setIsPageLoading(false)
-    }, 2000)
-
-    return () => clearTimeout(timeoutId)
-  }, [])
 
   const sendEmail = (e) => {
     e.preventDefault()
@@ -33,10 +94,10 @@ const Contact = () => {
 
     emailjs
       .sendForm(
-        'service_dzjmkcu',
-        'template_bmlvy12',
+        process.env.REACT_APP_EMAILJS_SERVICE_ID,
+        process.env.REACT_APP_EMAILJS_TEMPLATE_ID,
         form.current,
-        'xMuUFlvOfQf_VHUB3'
+        process.env.REACT_APP_EMAILJS_PUBLIC_KEY
       )
       .then(
         () => {
@@ -57,237 +118,287 @@ const Contact = () => {
   }
 
   const handleInputChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    })
-  }
-
-  const contactMethods = [
-    {
-      icon: '📧',
-      title: 'Email',
-      value: 'vdppatel@ucdavis.edu',
-      action: 'mailto:vdppatel@ucdavis.edu',
-      description: 'Send me an email directly'
-    },
-    {
-      icon: '💼',
-      title: 'LinkedIn',
-      value: 'linkedin.com/in/vishwas2285',
-      action: 'https://linkedin.com/in/vishwas2285',
-      description: 'Connect with me professionally'
-    },
-    {
-      icon: '</>',
-      title: 'Github',
-      value: 'github.com/vish2285',
-      action: 'https://github.com/vish2285',
-      description: 'Look at my Projects'
-    },
-    {
-      icon: '📍',
-      title: 'Location',
-      value: 'Davis, CA',
-      action: null,
-      description: 'Available for remote work'
-    }
-  ]
-
-  if (isPageLoading) {
-    return <Loading message="Loading Contact..." showTitle={true} title="Contact" subtitle="Preparing communication tools" />;
-  }
-
-  if (isLoading) {
-    return <Loading message="Sending Message..." showTitle={true} title="Preparing Your Message" subtitle="Securely sending your contact request..." />;
+    setFormData({ ...formData, [e.target.name]: e.target.value })
   }
 
   return (
-    <div className="container contact-page">
-      <div className="contact-hero">
-        <div className="hero-content">
-          <h1>
-            <AnimatedLetters
-              letterClass={letterClass}
-              strArray={['C', 'o', 'n', 't', 'a', 'c', 't']}
-              idx={15}
+    <section
+      id="contact"
+      style={{
+        background: 'var(--deep-panel)',
+        padding: '120px 0',
+      }}
+    >
+      <style>{`
+        .contact-row {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 16px;
+        }
+        @media (max-width: 600px) {
+          .contact-row { grid-template-columns: 1fr; }
+        }
+        @keyframes spin {
+          to { transform: rotate(360deg); }
+        }
+        .social-icon-btn {
+          width: 44px;
+          height: 44px;
+          background: var(--panel);
+          border: 1px solid var(--border-subtle);
+          border-radius: 8px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 18px;
+          cursor: pointer;
+          text-decoration: none;
+          color: var(--text-secondary);
+          transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+        }
+        .social-icon-btn:hover {
+          border-color: var(--cyan);
+          transform: translateY(-3px);
+          box-shadow: 0 0 12px rgba(0,212,255,0.2);
+        }
+      `}</style>
+
+      <div
+        style={{
+          maxWidth: 680,
+          margin: '0 auto',
+          padding: '0 clamp(20px, 5vw, 40px)',
+        }}
+      >
+        <motion.div
+          initial={{ opacity: 0, y: 12 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+        >
+          <div className="section-label">CONTACT.sh</div>
+        </motion.div>
+
+        <motion.h2
+          initial={{ opacity: 0, y: 12 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.05 }}
+          style={{
+            fontFamily: 'Space Grotesk, sans-serif',
+            fontSize: 'clamp(36px, 5vw, 52px)',
+            fontWeight: 700,
+            marginTop: 12,
+            marginBottom: 12,
+            lineHeight: 1.1,
+          }}
+        >
+          <span className="gradient-text">Let's Build Something.</span>
+        </motion.h2>
+
+        <motion.p
+          initial={{ opacity: 0, y: 12 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.1 }}
+          style={{
+            fontFamily: 'Inter, sans-serif',
+            fontSize: 15,
+            color: 'var(--text-secondary)',
+            lineHeight: 1.6,
+            marginBottom: 40,
+          }}
+        >
+          Open to internships, research collaborations, and interesting problems.
+        </motion.p>
+
+        {/* SUCCESS STATE */}
+        {isSubmitted && (
+          <motion.div
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4 }}
+            style={{
+              background: 'rgba(0,255,136,0.07)',
+              border: '1px solid rgba(0,255,136,0.3)',
+              borderRadius: 12,
+              padding: '28px 24px',
+              marginBottom: 32,
+              textAlign: 'center',
+            }}
+          >
+            <div
+              style={{
+                width: 48,
+                height: 48,
+                borderRadius: '50%',
+                background: 'rgba(0,255,136,0.15)',
+                border: '2px solid #00FF88',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                margin: '0 auto 16px',
+                fontSize: 22,
+                color: '#00FF88',
+              }}
+            >
+              ✓
+            </div>
+            <h3
+              style={{
+                fontFamily: 'Space Grotesk, sans-serif',
+                fontSize: 20,
+                fontWeight: 600,
+                color: '#00FF88',
+                marginBottom: 8,
+              }}
+            >
+              Message Sent!
+            </h3>
+            <p
+              style={{
+                fontFamily: 'Inter, sans-serif',
+                fontSize: 14,
+                color: 'var(--text-secondary)',
+              }}
+            >
+              Thanks for reaching out. I'll get back to you within 24 hours.
+            </p>
+          </motion.div>
+        )}
+
+        {/* FORM */}
+        <motion.form
+          ref={form}
+          onSubmit={sendEmail}
+          initial={{ opacity: 0, y: 12 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.15 }}
+          style={{ display: 'flex', flexDirection: 'column', gap: 16 }}
+        >
+          <div className="contact-row">
+            <FormInput
+              type="text"
+              name="name"
+              placeholder="Your name"
+              value={formData.name}
+              onChange={handleInputChange}
+              required
+              disabled={isLoading}
             />
-          </h1>
-          <p className="hero-subtitle">
-            Let's build something amazing together. I'm always excited to discuss 
-            new opportunities, innovative projects, and creative collaborations.
-          </p>
-          
-          <div className="contact-stats">
-            <div className="stat">
-              <span className="stat-number">24h</span>
-              <span className="stat-label">Response Time</span>
-            </div>
+            <FormInput
+              type="email"
+              name="email"
+              placeholder="your@email.com"
+              value={formData.email}
+              onChange={handleInputChange}
+              required
+              disabled={isLoading}
+            />
           </div>
-        </div>
-      </div>
 
-      <div className="contact-tabs">
-        <button 
-          className={`tab-button ${activeTab === 'form' ? 'active' : ''}`}
-          onClick={() => setActiveTab('form')}
-        >
-          Send Message
-        </button>
-        <button 
-          className={`tab-button ${activeTab === 'info' ? 'active' : ''}`}
-          onClick={() => setActiveTab('info')}
-        >
-          Contact Info
-        </button>
-      </div>
+          <FormInput
+            type="text"
+            name="subject"
+            placeholder="Subject"
+            value={formData.subject}
+            onChange={handleInputChange}
+            required
+            disabled={isLoading}
+          />
 
-      <div className="contact-content">
-        {activeTab === 'form' && (
-          <div className="form-section">
-            {isSubmitted && (
-              <div className="success-message">
-                <div className="success-icon">✓</div>
-                <h3>Message Sent Successfully!</h3>
-                <p>Thank you for reaching out. I'll get back to you within 24 hours.</p>
-              </div>
+          <FormTextarea
+            name="message"
+            placeholder="Tell me about your project, opportunity, or question..."
+            rows={6}
+            value={formData.message}
+            onChange={handleInputChange}
+            required
+            disabled={isLoading}
+          />
+
+          <button
+            type="submit"
+            className="btn-primary"
+            disabled={isLoading}
+            style={{
+              width: '100%',
+              height: 52,
+              fontSize: 15,
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              gap: 10,
+              cursor: isLoading ? 'not-allowed' : 'pointer',
+              opacity: isLoading ? 0.7 : 1,
+            }}
+          >
+            {isLoading ? (
+              <>
+                <span
+                  style={{
+                    width: 16,
+                    height: 16,
+                    border: '2px solid rgba(0,0,0,0.3)',
+                    borderTopColor: '#000',
+                    borderRadius: '50%',
+                    display: 'inline-block',
+                    animation: 'spin 0.7s linear infinite',
+                  }}
+                />
+                Sending...
+              </>
+            ) : (
+              'Send Message →'
             )}
+          </button>
+        </motion.form>
 
-            <div className="form-container">
-              <div className="form-header">
-                <h2>Get In Touch</h2>
-                <p>Fill out the form below and I'll respond as soon as possible</p>
-              </div>
+        {/* SOCIAL ICONS */}
+        <motion.div
+          initial={{ opacity: 0, y: 12 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+          style={{
+            display: 'flex',
+            justifyContent: 'center',
+            gap: 12,
+            marginTop: 32,
+          }}
+        >
+          {socialLinks.map((link) => (
+            <a
+              key={link.label}
+              href={link.href}
+              target={link.href.startsWith('mailto') ? '_self' : '_blank'}
+              rel="noopener noreferrer"
+              className="social-icon-btn"
+              title={link.label}
+            >
+              {link.icon}
+            </a>
+          ))}
+        </motion.div>
 
-              <form ref={form} onSubmit={sendEmail} className="contact-form">
-                <div className="form-row">
-                  <div className="form-group">
-                    <label>Full Name</label>
-                    <input 
-                      placeholder="Your full name" 
-                      type="text" 
-                      name="name" 
-                      value={formData.name}
-                      onChange={handleInputChange}
-                      required 
-                      disabled={isLoading}
-                    />
-                  </div>
-                  <div className="form-group">
-                    <label>Email Address</label>
-                    <input
-                      placeholder="your.email@example.com"
-                      type="email"
-                      name="email"
-                      value={formData.email}
-                      onChange={handleInputChange}
-                      required
-                      disabled={isLoading}
-                    />
-                  </div>
-                </div>
-
-                <div className="form-group">
-                  <label>Subject</label>
-                  <input
-                    placeholder="What's this about?"
-                    type="text"
-                    name="subject"
-                    value={formData.subject}
-                    onChange={handleInputChange}
-                    required
-                    disabled={isLoading}
-                  />
-                </div>
-
-                <div className="form-group">
-                  <label>Message</label>
-                  <textarea 
-                    placeholder="Tell me about your project, opportunity, or question..."
-                    name="message" 
-                    value={formData.message}
-                    onChange={handleInputChange}
-                    required 
-                    disabled={isLoading}
-                    rows="6"
-                  />
-                </div>
-
-                <button 
-                  type="submit" 
-                  className="submit-button"
-                  disabled={isLoading}
-                >
-                  {isLoading ? (
-                    <>
-                      <span className="spinner"></span>
-                      Sending Message...
-                    </>
-                  ) : (
-                    <>
-                      <span>Send Message</span>
-                      <span className="button-arrow">→</span>
-                    </>
-                  )}
-                </button>
-              </form>
-            </div>
-          </div>
-        )}
-
-        {activeTab === 'info' && (
-          <div className="info-section">
-            <div className="info-header">
-              <h2>Contact Information</h2>
-              <p>Choose your preferred method of communication</p>
-            </div>
-
-            <div className="contact-methods">
-              {contactMethods.map((method, index) => (
-                <div key={index} className="contact-method">
-                  <div className="method-icon">{method.icon}</div>
-                  <div className="method-content">
-                    <h3>{method.title}</h3>
-                    <p className="method-value">{method.value}</p>
-                    <p className="method-description">{method.description}</p>
-                    {method.action && (
-                      <a 
-                        href={method.action} 
-                        className="method-action"
-                        target={method.action.startsWith('http') ? '_blank' : '_self'}
-                        rel={method.action.startsWith('http') ? 'noopener noreferrer' : ''}
-                      >
-                        {method.action.startsWith('mailto:') ? 'Send Email' : 
-                         method.action.startsWith('tel:') ? 'Call Now' : 'Visit Profile'}
-                      </a>
-                    )}
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            <div className="availability">
-              <h3>Availability</h3>
-              <div className="availability-grid">
-                <div className="availability-item">
-                  <span className="availability-label">Response Time:</span>
-                  <span className="availability-value">Within 24 hours</span>
-                </div>
-                <div className="availability-item">
-                  <span className="availability-label">Best Time:</span>
-                  <span className="availability-value">7 AM - 6 PM PST</span>
-                </div>
-                <div className="availability-item">
-                  <span className="availability-label">Work Type:</span>
-                  <span className="availability-value">Remote & On-site</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        )}
+        {/* FOOTER LINE */}
+        <motion.p
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.25 }}
+          style={{
+            fontFamily: 'JetBrains Mono, monospace',
+            fontSize: 12,
+            color: 'var(--text-muted)',
+            textAlign: 'center',
+            marginTop: 48,
+          }}
+        >
+          {'// Built by Vishwas Patel · 2025 · UC Davis'}
+        </motion.p>
       </div>
-    </div>
+    </section>
   )
 }
-
-export default Contact

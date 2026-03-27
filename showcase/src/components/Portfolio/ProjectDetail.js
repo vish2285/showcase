@@ -1,236 +1,512 @@
-import React from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
-import portfolioData from '../../data/portfolio.json';
-import './index.scss';
+import { useParams, useNavigate } from 'react-router-dom'
+import { motion } from 'framer-motion'
+import portfolioData from '../../data/portfolio.json'
 
-const ProjectDetail = () => {
-  const { id } = useParams();
-  const navigate = useNavigate();
-  const project = portfolioData.portfolio[parseInt(id, 10)];
-
-  if (!project) return <div className="project-not-found">Project not found.</div>;
-
-  // Enhanced project details with bullet points based on resume and descriptions
-  const getProjectDetails = (projectId) => {
-    const details = {
-      0: { // FinLit
-        overview: "FinLit is an interactive financial literacy platform designed to educate users through dynamic quizzes and progress tracking. Built with modern web technologies, it provides an engaging way to learn essential financial concepts.",
-        keyFeatures: [
-          {
-            title: "Interactive Quiz System",
-            description: "Dynamic question logic with adaptive scoring and comprehensive progress tracking through an intuitive dashboard interface."
-          },
-          {
-            title: "AI-Powered Content Generation",
-            description: "Integrated OpenAI APIs to generate diverse quiz questions and multiple-choice options, ensuring fresh and relevant content."
-          },
-          {
-            title: "Secure Authentication & Database",
-            description: "JWT-based authentication flow with Clerk and PostgreSQL database schema using SQLAlchemy for robust user management and data persistence."
-          }
-        ]
-      },
-      1: { // AP PDF Generator
-        overview: "The AP PDF Generator is a powerful automation tool developed for the City of Sacramento that streamlines document creation processes. It eliminates manual repetitive tasks and significantly improves workflow efficiency.",
-        keyFeatures: [
-          {
-            title: "Automated PDF Generation",
-            description: "Automated creation and naming of 1000+ project PDFs by extracting AP numbers and project names directly from Excel spreadsheets."
-          },
-          {
-            title: "Advanced Processing",
-            description: "Implemented PDF generation with ReportLab and added ZIP packaging options, reducing multi-day manual tasks to minutes of automated processing."
-          },
-          {
-            title: "Workflow Optimization",
-            description: "Streamlined staff workflows by eliminating repetitive errors and demonstrating how data parsing, string manipulation, and automation deliver measurable efficiency gains."
-          }
-        ]
-      },
-      2: { // Xpenza
-        overview: "Xpenza is a comprehensive full-stack expense tracking application designed for personal and small business use. It provides real-time analytics and insights to help users manage their finances effectively.",
-        keyFeatures: [
-          {
-            title: "Real-Time Analytics Dashboard",
-            description: "Built for 20+ monthly users with comprehensive expense tracking and interactive data visualizations for better financial insights."
-          },
-          {
-            title: "Modern Tech Stack",
-            description: "Implemented Drizzle ORM for efficient database queries and ReactJS for responsive, interactive user interfaces."
-          },
-          {
-            title: "Scalable Infrastructure",
-            description: "Deployed on serverless PostgreSQL (Neon) and hosted via Vercel for high availability and optimal performance."
-          }
-        ]
-      },
-      3: { // Portfolio
-        overview: "A modern, responsive portfolio website showcasing professional work and skills. Built with cutting-edge web technologies to provide an engaging user experience and highlight professional achievements.",
-        keyFeatures: [
-          {
-            title: "Responsive Design",
-            description: "Fully responsive layout that adapts seamlessly across all devices and screen sizes for optimal user experience."
-          },
-          {
-            title: "Modern Technologies",
-            description: "Built with React, Tailwind CSS, and Vite for fast development and excellent performance with modern web standards."
-          },
-          {
-            title: "Professional Presentation",
-            description: "Clean, professional design that effectively showcases projects and skills while maintaining visual appeal and usability."
-          }
-        ]
-      },
-      4: { // Luminum
-        overview: "Luminum is a creative web application that demonstrates modern web development capabilities. It features an engaging user interface and showcases proficiency with contemporary web technologies.",
-        keyFeatures: [
-          {
-            title: "Creative Interface",
-            description: "Innovative and engaging user interface design that captures user attention and provides an enjoyable browsing experience."
-          },
-          {
-            title: "Modern Web Stack",
-            description: "Built with React, Tailwind CSS, and Vite for optimal performance and development efficiency."
-          },
-          {
-            title: "Responsive Layout",
-            description: "Fully responsive design that works perfectly across all devices and screen sizes."
-          }
-        ]
-      },
-      5: { // Old Portfolio
-        overview: "An earlier iteration of the portfolio website that demonstrates the evolution of web development skills and design approaches. It showcases the progression from basic to advanced web development techniques.",
-        keyFeatures: [
-          {
-            title: "Foundation Design",
-            description: "Established the foundation for portfolio presentation with clean, functional design principles."
-          },
-          {
-            title: "Technology Integration",
-            description: "Successfully integrated React, Tailwind CSS, and modern JavaScript for enhanced user experience."
-          },
-          {
-            title: "Responsive Framework",
-            description: "Implemented responsive design patterns that ensure accessibility across various devices and screen sizes."
-          }
-        ]
-      },
-      6: { // Signature Web
-        overview: "Signature Web is a unique digital signature application that allows users to create and customize digital signatures using modern web technologies. It provides an intuitive interface for digital document signing.",
-        keyFeatures: [
-          {
-            title: "Digital Signature Creation",
-            description: "Interactive signature creation using HTML5 Canvas API for smooth and responsive drawing experience."
-          },
-          {
-            title: "Customization Options",
-            description: "Multiple customization features including pen styles, colors, and signature positioning for professional document signing."
-          },
-          {
-            title: "Modern Web Technologies",
-            description: "Built with vanilla JavaScript and Canvas API for optimal performance and cross-browser compatibility."
-          }
-        ]
-      },
-      7: { // Weekly Schedule
-        overview: "A comprehensive weekly scheduling application that helps users organize and manage their time effectively. It provides an intuitive interface for creating and managing weekly schedules and appointments.",
-        keyFeatures: [
-          {
-            title: "Weekly Planning Interface",
-            description: "Intuitive weekly calendar interface that allows users to easily create, edit, and manage their weekly schedules."
-          },
-          {
-            title: "Responsive Design",
-            description: "Fully responsive design that works seamlessly across all devices, from desktop computers to mobile phones."
-          },
-          {
-            title: "Modern Technology Stack",
-            description: "Built with React, Tailwind CSS, and Vite for optimal performance and development efficiency."
-          }
-        ]
-      }
-    };
-    return details[projectId] || {
-      overview: "This project demonstrates proficiency in modern web development technologies and best practices.",
+const getProjectDetails = (projectId) => {
+  const details = {
+    0: {
+      overview:
+        'LabLink connects UC Davis students with professors aligned to their research interests. It uses a hybrid matching engine combining TF-IDF, BM25, and semantic embeddings to surface the most relevant faculty based on a student profile. The platform is live in production at lablinkdavis.org.',
       keyFeatures: [
         {
-          title: "Technical Implementation",
-          description: "Built using industry-standard technologies and frameworks for optimal performance and maintainability."
+          title: 'Hybrid Matching Engine',
+          description:
+            'Combines TF-IDF keyword matching, BM25 retrieval, and sentence-transformer semantic embeddings to rank professor relevance with high precision.',
         },
         {
-          title: "User Experience",
-          description: "Designed with user experience in mind, ensuring intuitive navigation and accessibility."
+          title: 'FastAPI + PostgreSQL Backend',
+          description:
+            'RESTful API built with FastAPI and SQLAlchemy ORM, backed by a PostgreSQL database. Designed for performance with async request handling.',
         },
         {
-          title: "Code Quality",
-          description: "Well-structured, maintainable code following best practices and modern development standards."
-        }
-      ]
-    };
-  };
-
-  const projectDetails = getProjectDetails(parseInt(id, 10));
+          title: 'Automated Email Drafting',
+          description:
+            'LLM-powered pipeline generates personalized outreach email drafts, reducing student outreach preparation time by approximately 80%.',
+        },
+      ],
+    },
+    1: {
+      overview:
+        'FinLit is an interactive financial literacy platform that educates users through AI-generated quizzes and personalized learning paths. Built with React + FastAPI, it uses OpenAI APIs to generate diverse question sets and tracks user progress with JWT-secured authentication.',
+      keyFeatures: [
+        {
+          title: 'AI-Powered Quiz Generation',
+          description:
+            'Integrates the OpenAI API to dynamically generate multiple-choice quiz questions on financial topics, ensuring fresh and diverse content.',
+        },
+        {
+          title: 'Progress Tracking Dashboard',
+          description:
+            'Tracks user scores, completed categories, and learning streaks through an interactive dashboard with visual progress indicators.',
+        },
+        {
+          title: 'Secure Auth & Data Layer',
+          description:
+            'JWT-based authentication with Clerk and a PostgreSQL schema using SQLAlchemy for persistent user data and session management.',
+        },
+      ],
+    },
+    2: {
+      overview:
+        'Xpenza is a full-stack expense tracking application for personal and small-business finance management. It provides real-time analytics, budget categorization, and visual spending insights for 20+ monthly active users.',
+      keyFeatures: [
+        {
+          title: 'Real-Time Analytics Dashboard',
+          description:
+            'Interactive data visualizations of spending by category, time period, and budget — built with Recharts and Next.js server components.',
+        },
+        {
+          title: 'Drizzle ORM + Neon PostgreSQL',
+          description:
+            'Serverless PostgreSQL powered by Neon with Drizzle ORM for type-safe, efficient database queries and schema migrations.',
+        },
+        {
+          title: 'Vercel Edge Deployment',
+          description:
+            'Hosted on Vercel with edge runtime for low-latency responses and seamless CI/CD from the GitHub repository.',
+        },
+      ],
+    },
+    3: {
+      overview:
+        'Luminum is a modern, animated landing page demonstrating advanced Framer Motion choreography and component architecture. It showcases performant animation patterns, responsive layout design, and clean React component composition.',
+      keyFeatures: [
+        {
+          title: 'Framer Motion Animations',
+          description:
+            'Scroll-triggered reveal animations, staggered children, and viewport-aware transitions create a polished, cinematic page experience.',
+        },
+        {
+          title: 'Vite + React Architecture',
+          description:
+            'Fast build pipeline with Vite and HMR, using Tailwind CSS utility classes for a maintainable and consistent design system.',
+        },
+        {
+          title: 'Responsive Layout',
+          description:
+            'Mobile-first responsive design that adapts fluidly from 320px to 1440px+ using Tailwind responsive breakpoints.',
+        },
+      ],
+    },
+    4: {
+      overview:
+        'Signature Web is a browser-based digital signature capture tool using the HTML5 Canvas API. Users can draw, customize, and export their signatures as PNG images — no plugins or dependencies required.',
+      keyFeatures: [
+        {
+          title: 'Canvas Drawing Engine',
+          description:
+            'Smooth signature capture with HTML5 Canvas API, supporting variable stroke width, real-time rendering, and touch input on mobile.',
+        },
+        {
+          title: 'Customization Options',
+          description:
+            'Users can adjust pen color, stroke thickness, and background — then export the result as a high-resolution PNG.',
+        },
+        {
+          title: 'Zero-Dependency Implementation',
+          description:
+            'Built with vanilla JavaScript and the Canvas API for maximum performance and cross-browser compatibility without any frameworks.',
+        },
+      ],
+    },
+    5: {
+      overview:
+        'A modern, responsive portfolio website showcasing projects, skills, and experience. Built with React, Tailwind CSS, Framer Motion, and Vercel for fast delivery and smooth animations.',
+      keyFeatures: [
+        {
+          title: 'Dark Design System',
+          description:
+            'CSS custom properties define a consistent token-based design system with cyan, violet, and green accent colors across all components.',
+        },
+        {
+          title: 'Framer Motion Page Transitions',
+          description:
+            'Smooth page enter/exit transitions and scroll-triggered component animations powered by Framer Motion whileInView variants.',
+        },
+        {
+          title: 'Responsive & Accessible',
+          description:
+            'Fully responsive layout that adapts from mobile to wide desktop, with semantic HTML and accessible color contrast ratios.',
+        },
+      ],
+    },
+    6: {
+      overview:
+        'A productivity application for planning and managing weekly schedules. Features a drag-and-drop calendar interface, local storage persistence, and a clean CSS Grid layout.',
+      keyFeatures: [
+        {
+          title: 'Weekly Calendar Interface',
+          description:
+            'Intuitive weekly grid lets users create, edit, and rearrange schedule blocks using drag-and-drop interactions.',
+        },
+        {
+          title: 'Local Storage Persistence',
+          description:
+            'Schedule data is persisted to localStorage so user schedules survive page refreshes without requiring a backend.',
+        },
+        {
+          title: 'CSS Grid Layout',
+          description:
+            'The calendar is built entirely with CSS Grid for pixel-accurate time slot positioning and responsive column scaling.',
+        },
+      ],
+    },
+  }
 
   return (
-    <div className="project-detail-container">
-      <div className="project-content">
-        <h1 className="project-title">{project.title}</h1>
-        
-        <div className="project-links">
-          <h2>Links</h2>
-          <div className="link-item">
-            <strong>Link to Application:</strong> 
-            <a href={project.url} target="_blank" rel="noopener noreferrer">
-              {project.url}
+    details[projectId] || {
+      overview:
+        'This project demonstrates proficiency in modern web development technologies and best practices.',
+      keyFeatures: [
+        {
+          title: 'Technical Implementation',
+          description:
+            'Built using industry-standard technologies and frameworks for optimal performance and maintainability.',
+        },
+        {
+          title: 'User Experience',
+          description:
+            'Designed with user experience in mind, ensuring intuitive navigation and accessibility.',
+        },
+        {
+          title: 'Code Quality',
+          description:
+            'Well-structured, maintainable code following best practices and modern development standards.',
+        },
+      ],
+    }
+  )
+}
+
+export default function ProjectDetail() {
+  const { id } = useParams()
+  const navigate = useNavigate()
+  const idx = parseInt(id, 10)
+  const project = portfolioData.portfolio[idx]
+
+  if (!project) {
+    return (
+      <div
+        style={{
+          minHeight: '100vh',
+          background: 'var(--void)',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          color: 'var(--text-secondary)',
+          fontFamily: 'Inter, sans-serif',
+        }}
+      >
+        Project not found.
+      </div>
+    )
+  }
+
+  const details = getProjectDetails(idx)
+  const isLive = project.liveAvailable
+  const padded = String(idx + 1).padStart(3, '0')
+
+  return (
+    <div
+      style={{
+        background: 'var(--void)',
+        minHeight: '100vh',
+        paddingTop: 100,
+        paddingBottom: 80,
+      }}
+    >
+      <style>{`
+        .detail-link-btn {
+          display: inline-flex;
+          align-items: center;
+          gap: 8px;
+          padding: 10px 18px;
+          background: transparent;
+          border: 1px solid var(--border-subtle);
+          border-radius: 8px;
+          color: var(--text-secondary);
+          font-family: Inter, sans-serif;
+          font-size: 13px;
+          text-decoration: none;
+          cursor: pointer;
+          transition: border-color 0.2s, color 0.2s, transform 0.2s;
+        }
+        .detail-link-btn:hover {
+          border-color: var(--cyan);
+          color: var(--cyan);
+          transform: translateY(-1px);
+        }
+        .detail-nav-btn {
+          padding: 10px 20px;
+          background: transparent;
+          border: 1px solid var(--border-subtle);
+          border-radius: 8px;
+          color: var(--text-secondary);
+          font-family: JetBrains Mono, monospace;
+          font-size: 12px;
+          cursor: pointer;
+          transition: border-color 0.2s, color 0.2s;
+        }
+        .detail-nav-btn:hover:not(:disabled) {
+          border-color: var(--cyan);
+          color: var(--cyan);
+        }
+        .detail-nav-btn:disabled {
+          opacity: 0.3;
+          cursor: not-allowed;
+        }
+      `}</style>
+
+      <div
+        style={{
+          maxWidth: 800,
+          margin: '0 auto',
+          padding: '0 40px',
+        }}
+      >
+        {/* Back Button */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.4 }}
+          style={{ marginBottom: 40 }}
+        >
+          <button
+            className="detail-link-btn"
+            onClick={() => navigate('/')}
+            style={{ border: '1px solid var(--border-subtle)', background: 'transparent' }}
+          >
+            ← Back to Projects
+          </button>
+        </motion.div>
+
+        {/* Project Number Badge */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.4, delay: 0.05 }}
+          style={{
+            fontFamily: 'JetBrains Mono, monospace',
+            fontSize: 11,
+            color: 'var(--text-muted)',
+            letterSpacing: '0.1em',
+            marginBottom: 12,
+          }}
+        >
+          PROJECT.{padded}
+        </motion.div>
+
+        {/* Title */}
+        <motion.h1
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.4, delay: 0.1 }}
+          style={{
+            fontFamily: 'Space Grotesk, sans-serif',
+            fontSize: 'clamp(32px, 5vw, 52px)',
+            fontWeight: 700,
+            lineHeight: 1.1,
+            marginBottom: 16,
+          }}
+        >
+          <span className="gradient-text">{project.title}</span>
+        </motion.h1>
+
+        {/* Status Badge */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.4, delay: 0.15 }}
+          style={{
+            display: 'inline-block',
+            fontFamily: 'JetBrains Mono, monospace',
+            fontSize: 11,
+            color: isLive ? '#00FF88' : '#FFD700',
+            letterSpacing: '0.05em',
+            marginBottom: 28,
+          }}
+        >
+          {isLive ? '[ LIVE ]' : '[ DEV ]'}
+        </motion.div>
+
+        {/* Links */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.4, delay: 0.2 }}
+          style={{ display: 'flex', gap: 12, flexWrap: 'wrap', marginBottom: 40 }}
+        >
+          {project.codeAvailable && project.codeUrl && (
+            <a
+              href={project.codeUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="detail-link-btn"
+            >
+              ⎇ View on GitHub
             </a>
-          </div>
-          {project.cover && (
-            <div className="link-item">
-              <strong>Demo:</strong> 
-              <a href={project.cover} target="_blank" rel="noopener noreferrer">
-                View Project Image
-              </a>
-            </div>
           )}
-        </div>
+          {isLive && project.liveUrl && (
+            <a
+              href={project.liveUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="detail-link-btn"
+            >
+              ↗ Live Demo
+            </a>
+          )}
+        </motion.div>
 
-        <div className="project-overview">
-          <h2>Overview</h2>
-          <p>{projectDetails.overview}</p>
-        </div>
-
-        <div className="project-features">
-          <h2>Key Features</h2>
-          {projectDetails.keyFeatures.map((feature, index) => (
-            <div key={index} className="feature-item">
-              <div className="feature-number">{index + 1}.</div>
-              <div className="feature-content">
-                <h3>{feature.title}</h3>
-                <p>{feature.description}</p>
-              </div>
-            </div>
+        {/* Tech Tags */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.4, delay: 0.22 }}
+          style={{ display: 'flex', flexWrap: 'wrap', gap: 8, marginBottom: 40 }}
+        >
+          {project.technologies.map((tech) => (
+            <span key={tech} className="tech-tag">
+              {tech}
+            </span>
           ))}
-        </div>
+        </motion.div>
 
-        <div className="project-navigation">
-          <button 
-            className="nav-btn prev-btn"
-            onClick={() => navigate(`/portfolio/${Math.max(0, parseInt(id, 10) - 1)}`)}
-            disabled={parseInt(id, 10) === 0}
+        {/* Overview */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.4, delay: 0.25 }}
+          style={{
+            background: 'var(--deep-panel)',
+            border: '1px solid var(--border-subtle)',
+            borderRadius: 12,
+            padding: '24px 28px',
+            marginBottom: 32,
+          }}
+        >
+          <div
+            style={{
+              fontFamily: 'JetBrains Mono, monospace',
+              fontSize: 10,
+              color: 'var(--text-muted)',
+              letterSpacing: '0.1em',
+              marginBottom: 12,
+            }}
           >
-            Previous
-          </button>
-          <button 
-            className="nav-btn next-btn"
-            onClick={() => navigate(`/portfolio/${Math.min(portfolioData.portfolio.length - 1, parseInt(id, 10) + 1)}`)}
-            disabled={parseInt(id, 10) === portfolioData.portfolio.length - 1}
+            OVERVIEW
+          </div>
+          <p
+            style={{
+              fontFamily: 'Inter, sans-serif',
+              fontSize: 16,
+              color: 'var(--text-secondary)',
+              lineHeight: 1.75,
+              margin: 0,
+            }}
           >
-            Next
+            {details.overview}
+          </p>
+        </motion.div>
+
+        {/* Key Features */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.4, delay: 0.3 }}
+          style={{ marginBottom: 48 }}
+        >
+          <div
+            style={{
+              fontFamily: 'JetBrains Mono, monospace',
+              fontSize: 10,
+              color: 'var(--text-muted)',
+              letterSpacing: '0.1em',
+              marginBottom: 16,
+            }}
+          >
+            KEY FEATURES
+          </div>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
+            {details.keyFeatures.map((feature, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 12 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4, delay: 0.35 + i * 0.08 }}
+                style={{
+                  background: 'var(--elevated-panel)',
+                  border: '1px solid var(--border-subtle)',
+                  borderRadius: 10,
+                  padding: '18px 20px',
+                  display: 'flex',
+                  gap: 16,
+                  alignItems: 'flex-start',
+                }}
+              >
+                <span
+                  style={{
+                    fontFamily: 'JetBrains Mono, monospace',
+                    fontSize: 13,
+                    color: 'var(--cyan)',
+                    minWidth: 20,
+                    paddingTop: 2,
+                  }}
+                >
+                  {String(i + 1).padStart(2, '0')}
+                </span>
+                <div>
+                  <div
+                    style={{
+                      fontFamily: 'Space Grotesk, sans-serif',
+                      fontSize: 15,
+                      fontWeight: 600,
+                      color: 'var(--cyan)',
+                      marginBottom: 6,
+                    }}
+                  >
+                    {feature.title}
+                  </div>
+                  <p
+                    style={{
+                      fontFamily: 'Inter, sans-serif',
+                      fontSize: 13,
+                      color: 'var(--text-secondary)',
+                      lineHeight: 1.6,
+                      margin: 0,
+                    }}
+                  >
+                    {feature.description}
+                  </p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
+
+        {/* Navigation */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.4, delay: 0.4 }}
+          style={{ display: 'flex', justifyContent: 'space-between', gap: 12 }}
+        >
+          <button
+            className="detail-nav-btn"
+            onClick={() => navigate(`/project/${idx - 1}`)}
+            disabled={idx === 0}
+          >
+            ← Previous Project
           </button>
-        </div>
+          <button
+            className="detail-nav-btn"
+            onClick={() => navigate(`/project/${idx + 1}`)}
+            disabled={idx === portfolioData.portfolio.length - 1}
+          >
+            Next Project →
+          </button>
+        </motion.div>
       </div>
     </div>
-  );
-};
-
-export default ProjectDetail; 
+  )
+}
